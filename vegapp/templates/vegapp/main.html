@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<head>
+    <title>Come Sano</title>
+    <!--angular & js files-->
+    <script src="{% static "bower_components/angular/angular.min.js" %}"></script>
+    <script src="{% static "angularapp/js/app.js" %}"></script>
+    <script src="{% static "angularapp/js/controllers/homeCtrl.js" %}"></script>
+    <!--angular dependencies-->
+    <script src="{% static "bower_components/angular-ui-router/release/angular-ui-router.min.js" %}"></script>
+    <script src="{% static "bower_components/AngularJS-Toaster/toaster.min.js" %}"></script>
+    <script src="{% static "bower_components/angular-animate/angular-animate.min.js" %}"></script>
+    <script src="{% static "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" %}"></script>
+
+
+</head>
+<h1>HOME</h1>
+<body ng-app="vegApp" class="my-body" >
+  <input type='hidden' id='csrf_token_input' value={{token}} ng-model="csrf_token">
+  <div class="container my-content">
+
+    <div ui-view></div>
+
+  </div>
+</body>
+<script>
+var static_url = '{{STATIC_URL}}'
+</script>
