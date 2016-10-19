@@ -8,16 +8,12 @@
 .mid-hor{
   position:relative;
   top:50%;
-  left:40%;
+  left:38%;
 }
 
 .fill {
     min-height: 43%;
     height: 43%;
-}
-
-#filters{
-  display: none;
 }
 
 .link-button {
@@ -37,7 +33,3 @@
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: @screen-lg-min) { ... }
-vertical-align: middle;
-position: absolute;
-top: 50%;
-margin: 0 auto;

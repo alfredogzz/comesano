@@ -1,29 +1,30 @@
 <div class="container-fluid fill">
   <div class="row">
     <div class="col-xs-12 button-center">
-      <button class="mid-hor btn-default btn-lg" href="#">Encontrar</button>
+      <button class="mid-hor btn-default btn-lg" ng-click="search()">Encontrar</button>
     </div>
   </div>
 </div>
 <div class="container fill">
   <div class="row">
     <div class="col-xs-12  text-center">
-      <button class="link-button text-center" id="btnFiltros">Filtros</button>
+      <button class="link-button text-center" id="btnFiltros" ng-click="toggleFilters()">Filtros</button>
     </div>
 
-    <div class="col-xs-12 text-center" id="filters">
+    <div class="col-xs-12 text-center" id="filters" ng-show="filtrosVisibles">
 
       <div class="col-xs-12">
         <label for="usr">Distancia:</label>
-        <input type="number" min="1" class="form-control" id="usr">
+        <input type="number" min="1" class="form-control" id="usr" ng-model="busqueda.distancia">
       </div>
 
       <div class="col-xs-12">
         <label for="sel1">Costo</label>
-        <select class="form-control" id="sel1">
+        <select class="form-control" id="sel1" ng-model="busqueda.costo">
           <option>$</option>
           <option>$$</option>
           <option>$$$</option>
+          <option>Todos</option>
         </select>
       </div>
 
@@ -31,7 +32,7 @@
         <label for="vegfriendly"> Veg Friendly</label>
           <div class="checkbox">
             <label>
-              <input type="checkbox">
+              <input type="checkbox" ng-model="busqueda.vegfriendly">
             </label>
           </div>
         </div>
