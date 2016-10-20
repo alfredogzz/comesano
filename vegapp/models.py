@@ -15,8 +15,8 @@ class UserProfile(models.Model):
 class Restaurant(models.Model):
     nombre = models.CharField(max_length=30)
     descripcion = models.CharField(max_length=200)
-    location_lat = models.DecimalField(max_digits=9, decimal_places=6)
-    location_lon = models.DecimalField(max_digits=9, decimal_places=6)
+    location_lat = models.DecimalField(max_digits=10, decimal_places=7)
+    location_lon = models.DecimalField(max_digits=10, decimal_places=7)
 
 class Review(models.Model):
     calificacion = models.IntegerField()
