@@ -2,11 +2,10 @@
   var ReporteCtrl;
 
   ReporteCtrl = function($scope, $rootScope, $state, $stateParams, $http, $uibModal, toaster) {
-    $scope.test = 'esto es un test para ang';
     $scope.busqueda = {};
     $scope.filtrosVisibles = false;
     $scope.busqueda.distancia
-    $scope.busqueda.vegfriendly
+    $scope.busqueda.costo
     $scope.busqueda.vegfriendly
 
     $scope.search = function(){
@@ -15,7 +14,7 @@
       $scope.vegfriendly = $scope.busqueda.vegfriendly;
       $scope.costo = $scope.busqueda.costo;
 
-      
+
     }
 
     $scope.toggleFilters = function(){

@@ -6,11 +6,14 @@
   </ng-map>
   <div class="row">
     <div class="row" ng-repeat="res in restaurants">
-      <div class="col-xs-6">
+      <div class="col-xs-4">
         [[res.nombre]]
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-4">
         [[res.descripcion]]
+      </div>
+      <div class="col-xs-4">
+        [[res.distance]]
       </div>
     </div>
   </div>
