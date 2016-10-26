@@ -9,11 +9,10 @@
     $scope.busqueda.vegfriendly
 
     $scope.search = function(){
-      console.log($scope.busqueda);
       $scope.distancia = $scope.busqueda.distancia;
       $scope.vegfriendly = $scope.busqueda.vegfriendly;
       $scope.costo = $scope.busqueda.costo;
-
+      $state.go('map', {searchParams: $scope.busqueda})
 
     }
 

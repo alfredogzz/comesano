@@ -21,7 +21,8 @@ module.config(['$stateProvider', '$urlRouterProvider',
           controller: 'mapCtrl',
           data: {
             css: static_url + 'angularapp/css/map.css'
-          }
+          },
+          params: {searchParams: null}
         })
         $urlRouterProvider.otherwise('/home');
     }]);

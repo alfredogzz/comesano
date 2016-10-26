@@ -17,6 +17,8 @@ class Restaurant(models.Model):
     descripcion = models.CharField(max_length=200)
     location_lat = models.DecimalField(max_digits=10, decimal_places=7)
     location_lon = models.DecimalField(max_digits=10, decimal_places=7)
+    price = models.CharField(max_length=4);
+    veg = models.BooleanField(default=False);
 
 class Review(models.Model):
     calificacion = models.IntegerField()
