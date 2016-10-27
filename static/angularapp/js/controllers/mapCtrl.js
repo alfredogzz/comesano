@@ -1,7 +1,7 @@
 (function() {
   var MapCtrl;
 
-  MapCtrl = function($scope, $rootScope, $state, $stateParams, $http, $uibModal, toaster, NgMap, checkformapa) {
+  MapCtrl = function($scope, $state, $stateParams, $http, $uibModal, toaster, NgMap, checkApi) {
     $scope.restaurants = [];
     $scope.restaurantmarkers = [];
     $scope.map;
@@ -20,7 +20,7 @@
     }
 
     $scope.getRestaurants=function(myMap, params){
-      checkformapa.checkRestaurants()
+      checkApi.checkRestaurants()
       .then(function(data){
         $scope.restaurants = data.data;
         //searchParams empty

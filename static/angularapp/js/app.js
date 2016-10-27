@@ -15,14 +15,30 @@ module.config(['$stateProvider', '$urlRouterProvider',
             css: static_url + 'angularapp/css/home.css'
           }
         })
-        .state('map',{
-          url: '/map',
+        .state('mapa',{
+          url: '/mapa',
           templateUrl: static_url + 'angularapp/html/map.html',
           controller: 'mapCtrl',
           data: {
             css: static_url + 'angularapp/css/map.css'
           },
           params: {searchParams: null}
+        })
+        .state('restaurant_detail',{
+          url: '/restaurant/:id',
+          templateUrl: static_url + 'angularapp/html/restaurant_detail.html',
+          controller: 'resDetCtrl',
+          data: {
+            css: static_url + 'angularapp/css/restaurant_detail.css'
+          }
+        })
+        .state('restaurants', {
+          url: '/restaurants',
+          templateUrl: static_url + 'angularapp/html/restaurants.html',
+          controller: 'restsCtrl',
+          data: {
+            css: static_url + 'angularapp/css/restaurants.css'
+          }
         })
         $urlRouterProvider.otherwise('/home');
     }]);
