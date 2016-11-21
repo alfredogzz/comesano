@@ -60,7 +60,7 @@
           marker = new google.maps.Marker({
             position: myLatLng,
             map: myMap,
-            label: (parseInt(i)+1).toString(),
+            label: (parseInt(restaurant.id)).toString(),
             title: 'marker for' + restaurant.nombre
           });
           $scope.restaurantmarkers.push(marker);
@@ -72,6 +72,7 @@
           }
           newBoundary.extend($scope.mainmarker.position)
           myMap.fitBounds(newBoundary);
+          myMap.setZoom((myMap.getZoom())+1);
       });
     }
 
