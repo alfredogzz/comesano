@@ -6,7 +6,11 @@ from .models import UserProfile, Restaurant, Review
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('url', 'username', 'email')
+        fields = ('url', 'username', 'email', 'password', 'is_superuser')
+
+    def create(self, validated_data):
+        user = User.objects.create_user(**validated_data)
+        return user
 
 class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

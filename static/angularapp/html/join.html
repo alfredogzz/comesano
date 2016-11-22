@@ -1,0 +1,16 @@
+<div class="container">
+
+  <div class="col-md-12">
+  <div id="logbox">
+      <h1>Crea una cuenta </h1>
+      <input ng-model="loginInfo.username" name="user[name]" type="text" placeholder="Username" autofocus="autofocus" required="required" class="input pass"/>
+      <input ng-model="loginInfo.password" name="user[password]" type="password" placeholder="Contraseña" required="required" class="input pass"/>
+      <input ng-model="pass2" name="user[password2]" type="password" placeholder="Confirma contraseña" required="required" class="input pass"/>
+      <input ng-model="loginInfo.email"name="user[email]" type="email" placeholder="Email" class="input pass"/>
+      <input value="Registrarme!" class="inputButton" ng-click="join()"/>
+      <div class="text-center">
+          Ya tienes una cuenta? <a href="#" id="login_id">Entrar</a>
+      </div>
+  </div>
+ </div>
+</div>

@@ -7,7 +7,7 @@
 
     service.checkRestaurants = function() {
       var defer = $q.defer();
-      http://127.0.0.1:8000/api/restaurants/
+      //http://127.0.0.1:8000/api/restaurants/
       $http({method : 'GET', url : api_url + 'restaurants.json'})
           .then(function(data) {
               defer.resolve(data);
@@ -19,7 +19,7 @@
 
     service.checkRestaurantPublic = function(id) {
       var defer = $q.defer();
-      http://127.0.0.1:8000/api/restaurants/id
+      //http://127.0.0.1:8000/api/restaurants/id
       $http({method : 'GET', url : api_url + 'restaurants/'+ id + '.json'})
           .then(function(data) {
               defer.resolve(data);
@@ -27,6 +27,27 @@
             defer.reject(error);
           });
       return defer.promise
+    };
+
+    service.newUser = function(newDataJSON, csrf_token){
+      var defer = $q.defer();
+      //http://127.0.0.1:8000/api/users/
+      var req = {
+          method: 'POST',
+          url: api_url + 'users/',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrf_token
+          },
+          data: newDataJSON
+        }
+        $http(req)
+        .then(function(data){
+          return defer.resolve(data)
+        },function(data){
+          return defer.resolve(data)
+        });
+        return defer.promise;
     };
 
     return service;

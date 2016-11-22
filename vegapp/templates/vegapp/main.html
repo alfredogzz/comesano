@@ -4,31 +4,34 @@
     <!--angular & js files-->
     <script src="{% static "bower_components/angular/angular.min.js" %}"></script>
     <!--angular dependencies-->
+    <script src="{% static "bower_components/jquery/jquery.min.js" %}"></script>
     <script src="{% static "bower_components/angular-ui-router/release/angular-ui-router.min.js" %}"></script>
     <script src="{% static "bower_components/angular-ui-router-styles/ui-router-styles.js" %}"></script>
     <script src="{% static "bower_components/AngularJS-Toaster/toaster.min.js" %}"></script>
     <script src="{% static "bower_components/angular-animate/angular-animate.min.js" %}"></script>
     <script src="{% static "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" %}"></script>
-    <script src="{% static "bower_components/jquery/dist/jquery.min.js" %}"></script>
     <script src="{% static "bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
     <script src="{% static "bower_components/ngmap/build/scripts/ng-map.min.js" %}"></script>
     <script src="http://maps.googleapis.com/maps/api/js?libraries=geometry"></script>
     <script src="{% static "bower_components/angular-animate/angular-animate.min.js" %}"></script>
     <script src="{% static "bower_components/AngularJS-Toaster/toaster.min.js" %}"></script>
-
+    <script src="{% static "bower_components/angular-cookies/angular-cookies.js" %}"></script>
     <link rel="stylesheet" href="{% static "bower_components/AngularJS-Toaster/toaster.min.css" %}"/>
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}"/>
+
     <script src="{% static "angularapp/css/home.css" %}"></script>
     <script src="{% static "angularapp/js/app.js" %}"></script>
+    <script src="{% static "angularapp/js/controllers/joinCtrl.js" %}"></script>
     <script src="{% static "angularapp/js/controllers/homeCtrl.js" %}"></script>
     <script src="{% static "angularapp/js/controllers/mapCtrl.js" %}"></script>
     <script src="{% static "angularapp/js/services/apiService.js" %}"></script>
+    <script src="{% static "angularapp/js/services/djangoAuth.js" %}"></script>
     <script src="{% static "angularapp/js/controllers/resDetCtrl.js" %}"></script>
     <script src="{% static "angularapp/js/controllers/restsCtrl.js" %}"></script>
 
+
     <!--mobilefirst-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
 </head>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -49,7 +52,37 @@
         <li class="active"><a href="#/home">Busqueda <span class="sr-only">(current)</span></a></li>
         <li><a href="#/mapa">Mapa</a></li>
         <li><a href="#/restaurants">Restaurants</a></li>
-        <li><a href="#">Perfil</a></li>
+        <li><a href="#/perfil">Perfil</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><p class="navbar-text">Ya tienes una cuenta?</p></li>
+        <li class="dropdown">
+          <a href="#/home" class="dropdown-toggle" data-toggle="dropdown"><b>Entrar</b> <span class="caret"></span></a>
+			<ul id="login-dp" class="dropdown-menu">
+				<li>
+					 <div class="row">
+							<div class="col-md-12">
+								 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+										<div class="form-group">
+											 <label class="sr-only" for="exampleInputEmail2">Email</label>
+											 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email" required>
+										</div>
+										<div class="form-group">
+											 <label class="sr-only" for="exampleInputPassword2">Password</label>
+											 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+										</div>
+										<div class="form-group">
+											 <button type="submit" class="btn btn-primary btn-block">Entra</button>
+										</div>
+								 </form>
+							</div>
+							<div class="bottom text-center">
+								Nuevo aqui? <a href="#/join"><b>Unete!</b></a>
+							</div>
+					 </div>
+				</li>
+			</ul>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -57,6 +90,7 @@
 
 <body ng-app="vegApp" class="my-body fondo"  ui-router-styles>
   <input type='hidden' id='csrf_token_input' value={{token}} ng-model="csrf_token">
+  <toaster-container></toaster-container>
   <div class="container my-content">
 
     <div ui-view></div>
