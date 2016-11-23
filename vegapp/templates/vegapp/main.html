@@ -1,4 +1,5 @@
 {% load staticfiles %}
+<html ng-app="vegApp" ng-controller="indexCtrl">
 <head>
     <title>Come Sano</title>
     <!--angular & js files-->
@@ -24,11 +25,12 @@
     <script src="{% static "angularapp/js/controllers/joinCtrl.js" %}"></script>
     <script src="{% static "angularapp/js/controllers/homeCtrl.js" %}"></script>
     <script src="{% static "angularapp/js/controllers/mapCtrl.js" %}"></script>
+    <script src="{% static "angularapp/js/controllers/indexCtrl.js" %}"></script>
     <script src="{% static "angularapp/js/services/apiService.js" %}"></script>
     <script src="{% static "angularapp/js/services/djangoAuth.js" %}"></script>
     <script src="{% static "angularapp/js/controllers/resDetCtrl.js" %}"></script>
     <script src="{% static "angularapp/js/controllers/restsCtrl.js" %}"></script>
-
+    <script src="{% static "angularapp/js/controllers/perfilCtrl.js" %}"></script>
 
     <!--mobilefirst-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -54,25 +56,27 @@
         <li><a href="#/restaurants">Restaurants</a></li>
         <li><a href="#/perfil">Perfil</a></li>
       </ul>
+      <div ng-hide="userLogged">
       <ul class="nav navbar-nav navbar-right">
         <li><p class="navbar-text">Ya tienes una cuenta?</p></li>
-        <li class="dropdown">
-          <a href="#/home" class="dropdown-toggle" data-toggle="dropdown"><b>Entrar</b> <span class="caret"></span></a>
+
+      <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown"><b>Entrar</b> <span class="caret"></span></a>
 			<ul id="login-dp" class="dropdown-menu">
 				<li>
 					 <div class="row">
 							<div class="col-md-12">
-								 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+								 <form class="form" role="form" accept-charset="UTF-8" id="login-nav">
 										<div class="form-group">
-											 <label class="sr-only" for="exampleInputEmail2">Email</label>
-											 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email" required>
+											 <label class="sr-only" for="exampleInputEmail2">Username</label>
+											 <input type="text" class="form-control" id="exampleInputEmail2" ng-model="navLogin.user" placeholder="Username" required>
 										</div>
 										<div class="form-group">
 											 <label class="sr-only" for="exampleInputPassword2">Password</label>
-											 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+											 <input type="password" class="form-control" id="exampleInputPassword2"  ng-model="navLogin.pass" placeholder="Password" required>
 										</div>
 										<div class="form-group">
-											 <button type="submit" class="btn btn-primary btn-block">Entra</button>
+											 <button  ng-click="loginNav()" class="btn btn-primary btn-block">Entra</button>
 										</div>
 								 </form>
 							</div>
@@ -84,11 +88,17 @@
 			</ul>
         </li>
       </ul>
+    </div><!-- user is  not logged in-->
+    <div ng-show=userLogged>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a ng-click="logout()">Salir</a></li>
+        </ul>
+    </div><!--user logged in-->
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
-<body ng-app="vegApp" class="my-body fondo"  ui-router-styles>
+<body class="my-body fondo"  ui-router-styles>
   <input type='hidden' id='csrf_token_input' value={{token}} ng-model="csrf_token">
   <toaster-container></toaster-container>
   <div class="container my-content">

@@ -20,10 +20,12 @@ from vegapp import views
 from django.contrib import admin
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet),
+router.register(r'users', views.UserViewSet)
 router.register(r'usersprofiles',views.UserProfileList)
 router.register(r'restaurants',views.RestaurantList)
 router.register(r'reviews',views.ReviewList)
+router.register(r'usersByUsername/(?P<username>[a-z0-9-]+)', views.UserDetail, base_name="usersByUsername")
+router.register(r'userProfileByUserId/(?P<id>[a-z0-9-]+)', views.UserProfileDetail, base_name="userProfileByUserId")
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

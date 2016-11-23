@@ -1,7 +1,7 @@
 (function() {
   var joinCtrl;
 
-  joinCtrl = function($scope,  $rootScope, $state, $stateParams, $http, $uibModal, toaster, checkApi, djangoAuth, $cookies) {
+  joinCtrl = function($scope,  $rootScope, toaster, djangoAuth, $cookies) {
     $scope.loginInfo = {};
     $scope.loginInfo.username;
     $scope.loginInfo.pass1;
@@ -11,20 +11,19 @@
     $scope.model = {'username':$scope.loginInfo.username,'password':$scope.loginInfo.password};
     $scope.csrf_token = document.getElementById('csrf_token_input').value;
     $cookies.csrftoken = $scope.csrf_token;
-    $rootScope.userinfo;
+    $cookies.put('token',$scope.csrf_token);
 
     $scope.poperror = function(title_text, body_text){
       toaster.pop('error', title_text, body_text);
     }
-
-
 
     $scope.login = function(){
       $scope.errors = [];
         djangoAuth.login($scope.loginInfo.username, $scope.loginInfo.password)
         .then(function(data){
         	// success case
-          $rootScope.userinfo = $scope.login;
+          $cookies.put('userUsername', $scope.loginInfo.username);
+          $cookies.put('userIsLogged', true);
         	$state.go("perfil");
         },function(data){
         	// error case

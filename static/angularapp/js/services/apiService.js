@@ -50,6 +50,30 @@
         return defer.promise;
     };
 
+    service.getUserInfoByUsername = function(username){
+      var defer = $q.defer();
+      //http://127.0.0.1:8000/api/usersByUsername/username
+      $http({method : 'GET', url : api_url + 'usersByUsername/'+ username + '.json'})
+          .then(function(data) {
+              defer.resolve(data);
+          }, function(error){
+            defer.reject(error);
+          });
+      return defer.promise
+    };
+
+    service.getUserProfileById = function(id){
+      var defer = $q.defer();
+      //http://127.0.0.1:8000/api/userProfileByUserId/id
+      $http({method : 'GET', url : api_url + 'userProfileByUserId/'+ id + '.json'})
+          .then(function(data) {
+              defer.resolve(data);
+          }, function(error){
+            defer.reject(error);
+          });
+      return defer.promise
+    };
+
     return service;
   };
   return angular.module('vegApp').factory('checkApi', checkApi);

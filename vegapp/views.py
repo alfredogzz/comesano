@@ -28,6 +28,20 @@ class ReviewList(viewsets.ModelViewSet):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
 
+class UserDetail(viewsets.ModelViewSet):
+    serializer_class = UserSerializer
+
+    def get_queryset(self):
+        user = self.kwargs['username']
+        return User.objects.filter(username=user)
+
+class UserProfileDetail(viewsets.ModelViewSet):
+    serializer_class = UserProfileSerializer
+
+    def get_queryset(self):
+        user_id = self.kwargs['id']
+        return UserProfile.objects.filter(user=user_id)
+
 def home(req):
     csrf_token = csrf.get_token(req)
     context_dict = {'STATIC_URL': settings.STATIC_URL, 'token': csrf_token}
