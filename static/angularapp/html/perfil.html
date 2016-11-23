@@ -1,4 +1,5 @@
 <div class="container-fluid">
+  <div ng-show="userLogged">
   <div class="row">
     <div class="col-xs-3">
       <img src="http://www.translationwebshop.com/wp-content/themes/translationwebshop/images/img_placeholder_avatar.jpg" class="img-responsive" alt="Cinque Terre">
@@ -11,5 +12,9 @@
     <div class="col-xs-12">
       <h4>Reviews</h4>
     </div>
-  </dvv>
+  </div>
+</div>
+<div ng-hide="userLogged">
+  <h2>Para entrar inicia sesion</h2>
+</div>
 </div>

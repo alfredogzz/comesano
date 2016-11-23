@@ -4,6 +4,7 @@
   perfilCtrl = function($scope,  $rootScope, $state, $stateParams, $http, $uibModal, toaster, checkApi, djangoAuth, $cookies) {
     $scope.userProfileInfo={};
     $scope.username;
+    $scope.userLogged = $cookies.getObject('userIsLogged');
 
     $scope.init = function(){
       $scope.username = $cookies.get('userUsername');
