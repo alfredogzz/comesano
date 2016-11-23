@@ -1,0 +1,21 @@
+<div id="contenedor" class="container-fluid fondo">
+      <div id="1" class=" titulo">
+      &nbsp;
+        Nombre &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+        Descripcion
+      </div>
+    <div  ng-repeat="res in restaurants">
+      <a ui-sref="restaurant_detail({id:res.id})" class="links">
+      <div class="col-xs-4">
+        [[res.nombre]]
+      </div>
+      <div class="col-xs-6">
+        [[res.descripcion]]
+      </div>
+      <div class="col-xs-2">
+        *****
+      </div>
+      </a>
+    </div>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc8Qt8L9RpMqyAxcAm7dxX3yNTn1DFwV8&callback=initMap" async defer></script>
+</div>

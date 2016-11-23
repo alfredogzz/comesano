@@ -1,0 +1,113 @@
+{% load staticfiles %}
+<html ng-app="vegApp" ng-controller="indexCtrl">
+<head>
+    <title>Come Sano</title>
+    <!--angular & js files-->
+    <script src="{% static "bower_components/angular/angular.min.js" %}"></script>
+    <!--angular dependencies-->
+
+    <link rel="stylesheet" href="{% static "bower_components/AngularJS-Toaster/toaster.min.css" %}"/>
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}"/>
+    <script src="{% static "bower_components/jquery/jquery.min.js" %}"></script>
+    <script src="{% static "bower_components/angular-ui-router/release/angular-ui-router.min.js" %}"></script>
+    <script src="{% static "bower_components/angular-ui-router-styles/ui-router-styles.js" %}"></script>
+    <script src="{% static "bower_components/AngularJS-Toaster/toaster.min.js" %}"></script>
+    <script src="{% static "bower_components/angular-animate/angular-animate.min.js" %}"></script>
+    <script src="{% static "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" %}"></script>
+    <script src="{% static "bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "bower_components/ngmap/build/scripts/ng-map.min.js" %}"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=geometry"></script>
+    <script src="{% static "bower_components/angular-animate/angular-animate.min.js" %}"></script>
+    <script src="{% static "bower_components/AngularJS-Toaster/toaster.min.js" %}"></script>
+    <script src="{% static "bower_components/angular-cookies/angular-cookies.js" %}"></script>
+
+    <script src="{% static "angularapp/css/home.css" %}"></script>
+    <script src="{% static "angularapp/js/app.js" %}"></script>
+    <script src="{% static "angularapp/js/controllers/joinCtrl.js" %}"></script>
+    <script src="{% static "angularapp/js/controllers/homeCtrl.js" %}"></script>
+    <script src="{% static "angularapp/js/controllers/mapCtrl.js" %}"></script>
+    <script src="{% static "angularapp/js/controllers/indexCtrl.js" %}"></script>
+    <script src="{% static "angularapp/js/services/apiService.js" %}"></script>
+    <script src="{% static "angularapp/js/services/djangoAuth.js" %}"></script>
+    <script src="{% static "angularapp/js/controllers/resDetCtrl.js" %}"></script>
+    <script src="{% static "angularapp/js/controllers/restsCtrl.js" %}"></script>
+    <script src="{% static "angularapp/js/controllers/perfilCtrl.js" %}"></script>
+
+    <!--mobilefirst-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Come Sano</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Busqueda <span class="sr-only">(current)</span></a></li>
+        <li><a href="#/mapa">Mapa</a></li>
+        <li><a href="#/restaurants">Restaurants</a></li>
+        <li><a href="#/perfil">Perfil</a></li>
+      </ul>
+      <div ng-hide="userLogged">
+      <ul class="nav navbar-nav navbar-right">
+        <li><p class="navbar-text">Ya tienes una cuenta?</p></li>
+
+      <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown"><b>Entrar</b> <span class="caret"></span></a>
+			<ul id="login-dp" class="dropdown-menu">
+				<li>
+					 <div class="row">
+							<div class="col-md-12">
+								 <form class="form" role="form" accept-charset="UTF-8" id="login-nav">
+										<div class="form-group">
+											 <label class="sr-only" for="exampleInputEmail2">Username</label>
+											 <input type="text" class="form-control" id="exampleInputEmail2" ng-model="navLogin.user" placeholder="Username" required>
+										</div>
+										<div class="form-group">
+											 <label class="sr-only" for="exampleInputPassword2">Password</label>
+											 <input type="password" class="form-control" id="exampleInputPassword2"  ng-model="navLogin.pass" placeholder="Password" required>
+										</div>
+										<div class="form-group">
+											 <button  ng-click="loginNav()" class="btn btn-primary btn-block">Entra</button>
+										</div>
+								 </form>
+							</div>
+							<div class="bottom text-center">
+								Nuevo aqui? <a href="#/join"><b>Unete!</b></a>
+							</div>
+					 </div>
+				</li>
+			</ul>
+        </li>
+      </ul>
+    </div><!-- user is  not logged in-->
+    <div ng-show=userLogged>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a ng-click="logout()">Salir</a></li>
+        </ul>
+    </div><!--user logged in-->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<body class="my-body fondo"  ui-router-styles>
+  <input type='hidden' id='csrf_token_input' value={{token}} ng-model="csrf_token">
+
+  <div class=" fondo">
+
+    <div ui-view></div>
+
+  </div>
+</body>
+<script>
+var static_url = '{{STATIC_URL}}'
+</script>
