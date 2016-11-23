@@ -16,11 +16,6 @@
       <ng-map default-style="false"></ng-map>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12">
-      reviews
-    </div>
-  </div>
   <div ng-show="userLogged">
   <div class="row">
     <div class="col-xs-12">
@@ -34,6 +29,26 @@
       <textarea class="form-control" rows="2" ng-model="reviewComment"></textarea>
       <button type="button" ng-click="sendResena()" class="btn btn-warning">Enviar</button>
     </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Usuario</th>
+        <th>Calificacion</th>
+        <th>Comentario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="review in review_list">
+        <td>[[review.user_name]]</td>
+        <td>      <span uib-rating ng-model="review.calificacion" max="max"  read-only="true" aria-labelledby="default-rating"></span></td>
+        <td>[[review.comentario]]</td>
+      </tr>
+    </tbody>
+  </table>
     </div>
   </div>
 </div>

@@ -13,6 +13,8 @@
     $scope.reviewAvg = 0;
     $scope.rest = {};
     $scope.rest.rate = 0;
+    $scope.review_list = {};
+
     $scope.popsuccess = function(title_text, body_text){
       toaster.pop('success', title_text, body_text);
     }
@@ -52,6 +54,13 @@
       {stateOff: 'glyphicon-off'}
     ];
 
+    $scope.getResenas = function(){
+      checkApi.checkRestaurantsReviewsList($scope.restaurant_id)
+      .then(function(data){
+        $scope.review_list=data.data;
+      });
+    }
+
     $scope.sendResena=function(){
       var newInfo = {};
       newInfo.calificacion = $scope.rate;
@@ -83,6 +92,7 @@
     }
 
     $scope.getRestaurantInfo($scope.restaurant_id);
+    $scope.getResenas();
     $scope.reviews();
   }
 

@@ -28,6 +28,7 @@ router.register(r'usersByUsername/(?P<username>[a-z0-9-]+)', views.UserDetail, b
 router.register(r'userProfileByUserId/(?P<id>[a-z0-9-]+)', views.UserProfileDetail, base_name="userProfileByUserId")
 router.register(r'RestaurantReviewAvg/(?P<id>[a-z0-9-]+)', views.RestaurantReviewAverage, base_name="RestaurantReviewAvg")
 router.register(r'RestaurantReviewCount/(?P<id>[a-z0-9-]+)', views.RestaurantReviewCount, base_name="RestaurantReviewCount")
+router.register(r'RestaurantReviews/(?P<id>[a-z0-9-]+)', views.RestaurantReviewList, base_name="RestaurantReviewList")
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

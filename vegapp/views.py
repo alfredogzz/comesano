@@ -7,7 +7,7 @@ from rest_framework import viewsets, generics
 from django.middleware import csrf
 from django.conf import settings
 from django.db.models import Avg
-from vegapp.serializers import UserSerializer, UserProfileSerializer, RestaurantSerializer, ReviewSerializer, ReviewAvgSerializer,ReviewCountSerializer
+from vegapp.serializers import *
 
 
 class RestaurantList(viewsets.ModelViewSet):
@@ -36,8 +36,15 @@ class RestaurantReviewAverage(viewsets.ModelViewSet):
         return count_rem
 
 class ReviewList(viewsets.ModelViewSet):
-    queryset = Review.objects.all()
     serializer_class = ReviewSerializer
+    queryset = Review.objects.all()
+
+
+class RestaurantReviewList(viewsets.ModelViewSet):
+    serializer_class = RestaurantReviewSerializer
+    def get_queryset(self):
+        restaurant_id = self.kwargs['id']
+        return Review.objects.filter(restaurant=restaurant_id)
 
 class UserViewSet(viewsets.ModelViewSet):
     """

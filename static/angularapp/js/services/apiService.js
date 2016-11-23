@@ -55,6 +55,18 @@
 
     };
 
+    service.checkRestaurantsReviewsList=function(id){
+      var defer = $q.defer();
+      //http://127.0.0.1:8000/api/RestaurantReviews/id
+      $http({method : 'GET', url : api_url + 'RestaurantReviews/'+ id + '.json'})
+          .then(function(data) {
+              defer.resolve(data);
+          }, function(error){
+            defer.reject(error);
+          });
+      return defer.promise
+    }
+
     service.newReview = function(newDataJSON, csrf_token){
       var defer = $q.defer();
       //http://127.0.0.1:8000/api/reviews/
