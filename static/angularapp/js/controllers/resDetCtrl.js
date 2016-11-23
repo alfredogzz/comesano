@@ -11,6 +11,8 @@
     $scope.csrf_token = document.getElementById('csrf_token_input').value;
     $scope.reviewCount = 0;
     $scope.reviewAvg = 0;
+    $scope.rest = {};
+    $scope.rest.rate = 0;
     $scope.popsuccess = function(title_text, body_text){
       toaster.pop('success', title_text, body_text);
     }
@@ -75,8 +77,8 @@
       }).then(function(data){
         if($scope.reviewCount>=5){
         $scope.reviewAvg = data.data[0].calificacion__avg
+        $scope.rest.rate = $scope.reviewAvg;
         }
-        console.log($scope.reviewAvg);
       });
     }
 
