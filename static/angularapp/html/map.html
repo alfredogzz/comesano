@@ -1,14 +1,26 @@
-<div class="container-fluid">
+<div  class="container-fluid fondos">
+
+  <div class="row">
+    <div class="col-xs-12">
   <ng-map default-style="true" center="current-location">
     <info-window position="current-location" zoom="10">
       <span>Loation found using HTML5.</span>
     </info-window>
   </ng-map>
-  <toaster-container></toaster-container>
+    </div>
+  </div>
+        <div id="2" class=" titulos">
+        # &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Nombre &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Distancia
+      </div>
   <div class="row">
     <div class="row" ng-repeat="res in restaurants">
-      <a ui-sref="restaurant_detail({id:res.id})">
-      <div class="col-xs-8">
+      <a ui-sref="restaurant_detail({id:res.id})" class="rest">
+      <div class="col-xs-1">
+        [[res.id]]
+      </div>
+      <div class="col-xs-6">
         [[res.nombre]]
       </div>
       <div class="col-xs-4">
@@ -17,5 +29,8 @@
       </a>
     </div>
   </div>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc8Qt8L9RpMqyAxcAm7dxX3yNTn1DFwV8&callback=initMap" async defer></script>
+  <!--
+  <script src="http://maps.googleapis.com/maps/api/js?libraries=geometry"></script>
+  -->
+
 </div>

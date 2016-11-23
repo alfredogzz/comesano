@@ -1,6 +1,11 @@
-<div class="container-fluid">
-    <div class="row" ng-repeat="res in restaurants">
-      <a ui-sref="restaurant_detail({id:res.id})">
+<div id="contenedor" class="container-fluid fondo">
+      <div id="1" class=" titulo">
+      &nbsp;
+        Nombre &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+        Descripcion
+      </div>
+    <div  ng-repeat="res in restaurants">
+      <a ui-sref="restaurant_detail({id:res.id})" class="links">
       <div class="col-xs-4">
         [[res.nombre]]
       </div>
