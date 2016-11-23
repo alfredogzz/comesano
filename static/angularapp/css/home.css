@@ -48,7 +48,7 @@ Position:relative;
     perspective-origin: 106.25px 22.5px;
     transform-origin: 106.25px 22.5px;
     user-select: none;
-    background: rgb(72, 201, 176) none repeat scroll 0px 0px / auto padding-box border-box;
+    background: rgb(52, 73, 94) none repeat scroll 0px 0px / auto padding-box border-box;
     border: 0px none rgb(72, 201, 176);
     border-radius: 6px 6px 6px 6px;
     font: normal normal normal normal 17px / 25.007px Lato, Helvetica, Arial, sans-serif;
@@ -72,15 +72,15 @@ Position:relative;
      cursor: pointer;
 }
 
-/*
+
 .fondo{
-    height: 500px;
-    width: 500px;
+    height: 100%;
+    width: 100%;
 background: #02AAB0;
-background: -webkit-linear-gradient(to left, #02AAB0 , #00CDAC); 
+background: -webkit-linear-gradient(to left, #02AAB0 , #00CDAC);
 background: linear-gradient(to left, #02AAB0 , #00CDAC);
 }
-*/
+
 
 #filtro{
   position:relative;
@@ -100,7 +100,7 @@ background: linear-gradient(to left, #02AAB0 , #00CDAC);
     perspective-origin: 106.25px 22.5px;
     transform-origin: 106.25px 22.5px;
     user-select: none;
-    background: rgb(72, 201, 176) none repeat scroll 0px 0px / auto padding-box border-box;
+    background: rgb(52, 73, 94) none repeat scroll 0px 0px / auto padding-box border-box;
     border: 0px none rgb(72, 201, 176);
     border-radius: 6px 6px 6px 6px;
     font: normal normal normal normal 17px / 25.007px Lato, Helvetica, Arial, sans-serif;
@@ -163,6 +163,56 @@ background: linear-gradient(to left, #02AAB0 , #00CDAC);
     border: 0px none rgb(26, 188, 156);
     font: normal normal normal normal 20px / 20px Flat-UI-Icons;
     outline: rgb(26, 188, 156) none 0px;
+}
+#login-dp{
+  min-width: 250px;
+  padding: 14px 14px 0;
+  overflow:hidden;
+  background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+  font-size:12px
+}
+#login-dp .bottom{
+  background-color:rgba(255,255,255,.8);
+  border-top:1px solid #ddd;
+  clear:both;
+  padding:14px;
+}
+#login-dp .social-buttons{
+  margin:12px 0
+}
+#login-dp .social-buttons a{
+  width: 49%;
+}
+#login-dp .form-group {
+  margin-bottom: 10px;
+}
+.btn-fb{
+  color: #fff;
+  background-color:#3b5998;
+}
+.btn-fb:hover{
+  color: #fff;
+  background-color:#496ebc
+}
+.btn-tw{
+  color: #fff;
+  background-color:#55acee;
+}
+.btn-tw:hover{
+  color: #fff;
+  background-color:#59b5fa;
+}
+@media(max-width:768px){
+  #login-dp{
+      background-color: inherit;
+      color: #fff;
+  }
+  #login-dp .bottom{
+      background-color: inherit;
+      border-top:0 none;
+  }
 }
 
 /* Small devices (tablets, 768px and up) */
