@@ -20,7 +20,14 @@ class Restaurant(models.Model):
     price = models.CharField(max_length=4);
     veg = models.BooleanField(default=False);
 
+    def __str__(self):
+        return self.nombre
+
+    def __unicode__(self):
+        return self.nombre
+
 class Review(models.Model):
     calificacion = models.IntegerField()
+    comentario = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)

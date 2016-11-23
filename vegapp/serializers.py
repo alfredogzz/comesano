@@ -22,7 +22,13 @@ class RestaurantSerializer(serializers.HyperlinkedModelSerializer):
         model = Restaurant
         fields = ('id','nombre', 'descripcion', 'location_lat', 'location_lon', 'price', 'veg')
 
+class ReviewAvgSerializer(serializers.Serializer):
+    calificacion__avg = serializers.FloatField()
+
+class ReviewCountSerializer(serializers.Serializer):
+    count = serializers.IntegerField()
+
 class ReviewSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Review
-        fields = ('calificacion', 'user', 'restaurant')
+        fields = ('id','comentario','calificacion', 'user', 'restaurant')
