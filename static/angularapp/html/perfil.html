@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid fondo">
   <div ng-show="userLogged">
   <div class="row">
     <div class="col-xs-3">
@@ -10,7 +10,24 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <h4>Reviews</h4>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Restaurant</th>
+            <th>Calificacion</th>
+            <th>Comentario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="review in reviews">
+            <td>[[review.restaurant_name]]</td>
+            <td> [[review.calificacion]]     <span uib-rating ng-model="review.calificacion" max="max"  read-only="true" aria-labelledby="default-rating"></span></td>
+            <td>[[review.comentario]]</td>
+          </tr>
+        </tbody>
+      </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>

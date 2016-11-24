@@ -48,7 +48,7 @@ Position:relative;
     perspective-origin: 106.25px 22.5px;
     transform-origin: 106.25px 22.5px;
     user-select: none;
-    background: rgb(72, 201, 176) none repeat scroll 0px 0px / auto padding-box border-box;
+    background: rgb(52, 73, 94) none repeat scroll 0px 0px / auto padding-box border-box;
     border: 0px none rgb(72, 201, 176);
     border-radius: 6px 6px 6px 6px;
     font: normal normal normal normal 17px / 25.007px Lato, Helvetica, Arial, sans-serif;
@@ -72,15 +72,15 @@ Position:relative;
      cursor: pointer;
 }
 
-/*
+
 .fondo{
-    height: 500px;
-    width: 500px;
+    height: 100%;
+    width: 100%;
 background: #02AAB0;
 background: -webkit-linear-gradient(to left, #02AAB0 , #00CDAC);
 background: linear-gradient(to left, #02AAB0 , #00CDAC);
 }
-*/
+
 
 #filtro{
   position:relative;
@@ -100,7 +100,7 @@ background: linear-gradient(to left, #02AAB0 , #00CDAC);
     perspective-origin: 106.25px 22.5px;
     transform-origin: 106.25px 22.5px;
     user-select: none;
-    background: rgb(72, 201, 176) none repeat scroll 0px 0px / auto padding-box border-box;
+    background: rgb(52, 73, 94) none repeat scroll 0px 0px / auto padding-box border-box;
     border: 0px none rgb(72, 201, 176);
     border-radius: 6px 6px 6px 6px;
     font: normal normal normal normal 17px / 25.007px Lato, Helvetica, Arial, sans-serif;

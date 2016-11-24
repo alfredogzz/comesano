@@ -39,12 +39,19 @@ class ReviewList(viewsets.ModelViewSet):
     serializer_class = ReviewSerializer
     queryset = Review.objects.all()
 
+class UserReviewList(viewsets.ModelViewSet):
+    serializer_class = UserReviewSerializer
+    def get_queryset(self):
+        user_id = self.kwargs['id']
+        return Review.objects.filter(user=user_id)
+
 
 class RestaurantReviewList(viewsets.ModelViewSet):
     serializer_class = RestaurantReviewSerializer
     def get_queryset(self):
         restaurant_id = self.kwargs['id']
         return Review.objects.filter(restaurant=restaurant_id)
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """

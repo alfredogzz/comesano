@@ -17,6 +17,12 @@ class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
         model = UserProfile
         fields= ('id', 'user', 'img_perfil', 'nombre_completo')
 
+class UserReviewSerializer(serializers.HyperlinkedModelSerializer):
+    restaurant_name = serializers.CharField(source='restaurant.nombre', read_only=True)
+    class Meta:
+        model = Review
+        fields = ('id','comentario','calificacion','restaurant_name')
+
 class RestaurantSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Restaurant

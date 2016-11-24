@@ -5,6 +5,7 @@
     $scope.userProfileInfo={};
     $scope.username;
     $scope.userLogged = $cookies.getObject('userIsLogged');
+    $scope.reviews = {};
 
     $scope.init = function(){
       $scope.username = $cookies.get('userUsername');
@@ -18,7 +19,16 @@
       })
     }
 
+    $scope.getReviews= function(){
+      var id = JSON.parse($cookies.get('userInfo')).id;
+      checkApi.getUserReviews(id)
+      .then(function(data){
+        $scope.reviews = data.data;
+      });
+    }
+
     $scope.init();
+    $scope.getReviews();
   }
 
   angular.module('vegApp').controller('perfilCtrl', perfilCtrl);

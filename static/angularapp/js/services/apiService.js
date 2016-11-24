@@ -135,6 +135,17 @@
       return defer.promise
     };
 
+    service.getUserReviews = function(id){
+      var defer = $q.defer();
+      $http({method : 'GET', url : api_url + 'UserReviews/'+ id + '.json'})
+          .then(function(data) {
+              defer.resolve(data);
+          }, function(error){
+            defer.reject(error);
+          });
+      return defer.promise
+    };
+
     return service;
   };
   return angular.module('vegApp').factory('checkApi', checkApi);

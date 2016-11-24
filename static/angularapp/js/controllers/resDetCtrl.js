@@ -58,6 +58,7 @@
       checkApi.checkRestaurantsReviewsList($scope.restaurant_id)
       .then(function(data){
         $scope.review_list=data.data;
+        console.log($scope.review_list);
       });
     }
 

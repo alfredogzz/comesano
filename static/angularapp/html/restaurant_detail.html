@@ -1,9 +1,9 @@
-<div class="container-fluid">
+<div class="container-fluid fondo">
   <toaster-container></toaster-container>
-  <div class="row">
+  <div class="row restaurante1">
     <div class="col-xs-12 title">[[restaurant_info.nombre]]</div>
   </div>
-  <div class="row">
+  <div class="row restaurante2">
     <div class="col-xs-6">
       [[restaurant_info.descripcion]]
     </div>
@@ -33,7 +33,7 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <table class="table table-hover">
+  <table class="table table-hover">
     <thead>
       <tr>
         <th>Usuario</th>
@@ -44,7 +44,7 @@
     <tbody>
       <tr ng-repeat="review in review_list">
         <td>[[review.user_name]]</td>
-        <td>      <span uib-rating ng-model="review.calificacion" max="max"  read-only="true" aria-labelledby="default-rating"></span></td>
+        <td><span uib-rating ng-model="review.calificacion" max="max"  read-only="true" aria-labelledby="default-rating"></span></td>
         <td>[[review.comentario]]</td>
       </tr>
     </tbody>
