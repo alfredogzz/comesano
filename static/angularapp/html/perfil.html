@@ -10,9 +10,26 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <h4>Reviews</h4>
+      <table class="table table-hover">
+        <thead>
+          <tr class=" titulo">
+            <th >Restaurant</th>
+            <th>Calificacion</th>
+            <th>Comentario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="review in reviews">
+            <td>[[review.restaurant_name]]</td>
+            <td> [[review.calificacion]]     <span uib-rating ng-model="review.calificacion" max="max"  read-only="true" aria-labelledby="default-rating"></span></td>
+            <td>[[review.comentario]]</td>
+          </tr>
+        </tbody>
+      </table>
+        </div>
+      </div>
     </div>
-  </div> 
+  </div>
 </div>
 <div ng-hide="userLogged">
   <h2>Para entrar inicia sesion</h2>
