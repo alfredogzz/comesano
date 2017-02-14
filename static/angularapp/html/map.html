@@ -1,4 +1,5 @@
-<div  class="container-fluid fondos">
+
+<div  class="container-fluid fondos fondo">
 
   <div class="row">
     <div class="col-xs-12">
@@ -9,11 +10,16 @@
   </ng-map>
     </div>
   </div>
-        <div id="2" class=" titulos">
-        # &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        Nombre &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        Distancia
-      </div>
+      <table class="table table-hover">
+        <thead>
+          <tr class=" titulo">
+            <th >#</th>
+            <th>Nombre</th>
+            <th>Distancia</th>
+          </tr>
+        </thead>
+      </table>
+
   <div class="row">
     <div class="row" ng-repeat="res in restaurants">
       <a ui-sref="restaurant_detail({id:res.id})" class="rest">
