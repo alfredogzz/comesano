@@ -27,7 +27,7 @@ Encuentra opciones  para comer sanas ( y vegetarianas) facilmente.
 <td>Bower</td>
 <td>>=1.7.x</td>
 </tr>
-
+</table>
 ###To run:
 
 Instalar dependencias
