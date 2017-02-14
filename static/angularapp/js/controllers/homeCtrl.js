@@ -7,6 +7,8 @@
     $scope.busqueda.distancia
     $scope.busqueda.costo
     $scope.busqueda.vegfriendly
+    $rootScope.userinfo;
+    $rootScope.userIsLogged = false;
 
     $scope.search = function(){
       $scope.distancia = $scope.busqueda.distancia;

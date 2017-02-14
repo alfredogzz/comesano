@@ -6,7 +6,51 @@ from .models import UserProfile, Restaurant, Review
 from rest_framework import viewsets, generics
 from django.middleware import csrf
 from django.conf import settings
-from vegapp.serializers import UserSerializer, UserProfileSerializer, RestaurantSerializer, ReviewSerializer
+from django.db.models import Avg
+from vegapp.serializers import *
+
+
+class RestaurantList(viewsets.ModelViewSet):
+    queryset = Restaurant.objects.all()
+    serializer_class = RestaurantSerializer
+
+class RestaurantReviewCount(viewsets.ModelViewSet):
+    serializer_class = ReviewCountSerializer
+
+    def get_queryset(self):
+        restaurant_id = self.kwargs['id']
+        count_rem = []
+        inner_count = {}
+        inner_count['count'] = Review.objects.filter(restaurant=restaurant_id).count()
+        count_rem.append(inner_count)
+        return count_rem
+
+class RestaurantReviewAverage(viewsets.ModelViewSet):
+    serializer_class = ReviewAvgSerializer
+
+    def get_queryset(self):
+        restaurant_id = self.kwargs['id']
+        count_rem = []
+        inner_count = Review.objects.filter(restaurant=restaurant_id).aggregate(Avg('calificacion'))
+        count_rem.append(inner_count)
+        return count_rem
+
+class ReviewList(viewsets.ModelViewSet):
+    serializer_class = ReviewSerializer
+    queryset = Review.objects.all()
+
+class UserReviewList(viewsets.ModelViewSet):
+    serializer_class = UserReviewSerializer
+    def get_queryset(self):
+        user_id = self.kwargs['id']
+        return Review.objects.filter(user=user_id)
+
+
+class RestaurantReviewList(viewsets.ModelViewSet):
+    serializer_class = RestaurantReviewSerializer
+    def get_queryset(self):
+        restaurant_id = self.kwargs['id']
+        return Review.objects.filter(restaurant=restaurant_id)
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -20,13 +64,19 @@ class UserProfileList(viewsets.ModelViewSet):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
 
-class RestaurantList(viewsets.ModelViewSet):
-    queryset = Restaurant.objects.all()
-    serializer_class = RestaurantSerializer
+class UserDetail(viewsets.ModelViewSet):
+    serializer_class = UserSerializer
 
-class ReviewList(viewsets.ModelViewSet):
-    queryset = Review.objects.all()
-    serializer_class = ReviewSerializer
+    def get_queryset(self):
+        user = self.kwargs['username']
+        return User.objects.filter(username=user)
+
+class UserProfileDetail(viewsets.ModelViewSet):
+    serializer_class = UserProfileSerializer
+
+    def get_queryset(self):
+        user_id = self.kwargs['id']
+        return UserProfile.objects.filter(user=user_id)
 
 def home(req):
     csrf_token = csrf.get_token(req)

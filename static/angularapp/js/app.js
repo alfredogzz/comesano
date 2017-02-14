@@ -1,4 +1,4 @@
-var module = angular.module("vegApp", ['ui.router', 'uiRouterStyles', 'ui.bootstrap', 'toaster', 'ngAnimate', 'ngMap'] );
+var module = angular.module("vegApp", ['ui.router', 'uiRouterStyles', 'ui.bootstrap', 'toaster', 'ngAnimate', 'ngMap', 'ngCookies'] );
 module.config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('[[').endSymbol(']]');
 });
@@ -38,6 +38,22 @@ module.config(['$stateProvider', '$urlRouterProvider',
           controller: 'restsCtrl',
           data: {
             css: static_url + 'angularapp/css/restaurants.css'
+          }
+        })
+        .state('perfil', {
+          url: '/perfil',
+          templateUrl: static_url + 'angularapp/html/perfil.html',
+          controller: 'perfilCtrl',
+          data: {
+            css: static_url + 'angularapp/css/perfil.css'
+          }
+        })
+        .state('join', {
+          url: '/join',
+          templateUrl: static_url + 'angularapp/html/join.html',
+          controller: 'joinCtrl',
+          data: {
+            css: static_url + 'angularapp/css/join.css'
           }
         })
         $urlRouterProvider.otherwise('/home');
