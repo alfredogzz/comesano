@@ -80,3 +80,45 @@ a.animated-button:link, a.animated-button:visited {
 	-o-transition: all 1s ease;
 	transition: all 1s ease;
 }
+
+.Img{
+	  background-size:contain;
+	  	  z-index: 9999;
+	  position: relative;
+	    -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+	  	  					-webkit-transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
+		-moz-transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
+		transition:cubic-bezier(.34,.43,0,1.02) 0.2s;
+			  box-shadow: 0px 0px 0px 2pt transparent;
+	  border: 0px solid #FFF;
+	  margin: auto;
+
+	  	width:200px;
+	height:200px;
+}
+
+.nombre{
+    color: rgb(0, 0, 0);  
+    column-rule-color: rgb(52, 73, 94);
+    perspective-origin: 352.5px 22px;
+    transform-origin: 352.5px 22px;
+    border: 5px none rgb(52, 73, 94);
+    font: normal normal bold normal 40px / 44px Lato, Helvetica, Arial, sans-serif;
+    outline: rgb(52, 73, 94) none 0px;
+}
+
+.titulos{
+    color: rgb(0, 0, 0);  
+    column-rule-color: rgb(100, 73, 94);
+    perspective-origin: 352.5px 22px;
+    transform-origin: 352.5px 22px;
+    border: 5px none rgb(52, 73, 94);
+    font: normal normal bold normal 20px / 24px Lato, Helvetica, Arial, sans-serif;
+    outline: rgb(52, 73, 94) none 0px;
+}
+
+.perfil{
+	padding-bottom: 50px;
+}
