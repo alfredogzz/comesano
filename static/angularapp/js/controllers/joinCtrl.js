@@ -1,7 +1,7 @@
 (function() {
   var joinCtrl;
 
-  joinCtrl = function($scope,  $rootScope, toaster, djangoAuth, $cookies) {
+  joinCtrl = function($scope,  $rootScope, toaster, djangoAuth, $cookies, checkApi, $state) {
     $scope.loginInfo = {};
     $scope.loginInfo.username;
     $scope.loginInfo.pass1;
@@ -19,9 +19,11 @@
 
     $scope.login = function(){
       $scope.errors = [];
-        djangoAuth.login($scope.loginInfo.username, $scope.loginInfo.password)
+        checkApi.login($scope.loginInfo.username, $scope.loginInfo.password)
         .then(function(data){
         	// success case
+          console.log(data);
+          $cookies.put('auth_token', data.auth_token)
           $cookies.put('userUsername', $scope.loginInfo.username);
           $cookies.put('userIsLogged', true);
         	$state.go("perfil");
@@ -35,16 +37,13 @@
 
     $scope.join = function(){
       if ($scope.loginInfo.password === $scope.pass2) {
-        console.log($scope.loginInfo);
         checkApi.newUser($scope.loginInfo, $scope.csrf_token)
         .then(function(data){
-          console.log(data);
           if (data.status == 201) { //created successfully
             $scope.login();
           }else if(data.status == 400){
-            $scope.poperror(data.data.detail, "Intentalo de nuevo");
-          }else {
-
+            console.log('nope');
+            $scope.poperror("Error", "Intentalo de nuevo");
           }
         });
       }else {

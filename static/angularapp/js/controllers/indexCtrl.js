@@ -21,9 +21,11 @@
     }
 
     $scope.logout= function(){
-      djangoAuth.logout()
+      var tok = $cookies.getObject('auth_token');
+      djangoAuth.logout(tok)
       .then(function(data){
         // success case
+        $cookies.put('auth_token', null);
         $cookies.put('userInfo', null);
         $cookies.put('userUsername', null);
         $cookies.put('userIsLogged', false);
@@ -40,19 +42,21 @@
 
     $scope.loginNav = function (){
       $scope.errors = [];
-        djangoAuth.login($scope.navLogin.user, $scope.navLogin.pass)
+        checkApi.login($scope.navLogin.user, $scope.navLogin.pass)
         .then(function(data){
           // success case
+          console.log(data);
+          $cookies.put('auth_token', data.auth_token)
           $cookies.put('userUsername', $scope.navLogin.user);
           $cookies.put('userIsLogged', true);
           $scope.popsuccess("Has entrado a tu sesion", "Listo para comer?");
           $state.go("home", {}, { reload: true });
         },function(data){
           // error case
-          console.log('nada');
           $scope.errors = data;
           console.log($scope.errors);
           $scope.poperror("Error", "Intentalo de nuevo");
+          $state.go("home", {}, { reload: true });
         });
     }
 

@@ -8,23 +8,36 @@
     $scope.reviews = {};
 
     $scope.init = function(){
-      $scope.username = $cookies.get('userUsername');
-      checkApi.getUserInfoByUsername($scope.username)
-      .then(function(data){
-        $scope.userProfileInfo.id = data.data[0].id;
-        return checkApi.getUserProfileById($scope.userProfileInfo.id);
-      }).then(function(data){
-        $scope.userProfileInfo.nombre_completo = data.data[0].nombre_completo;
-        $cookies.put('userInfo', JSON.stringify($scope.userProfileInfo));
-      })
+      if ($scope.userLogged) {
+        $scope.username = $cookies.get('userUsername');
+        checkApi.getUserInfoByUsername($scope.username)
+        .then(function(data){
+          console.log(data);
+          $scope.userProfileInfo.id = data.data[0].id;
+          $scope.userProfileInfo.nombre_completo = $scope.username;
+          return checkApi.getUserProfileById($scope.userProfileInfo.id);
+        }).then(function(data){
+          console.log(data);
+          if (data.data.length == 0) {
+            console.log('no hay perfil');
+          }else {
+            $scope.userProfileInfo.nombre_completo = data.data[0].nombre_completo;
+            $cookies.put('userInfo', JSON.stringify($scope.userProfileInfo));
+          }
+        })
+      };
+
     }
 
     $scope.getReviews= function(){
-      var id = JSON.parse($cookies.get('userInfo')).id;
-      checkApi.getUserReviews(id)
-      .then(function(data){
-        $scope.reviews = data.data;
-      });
+      if ($scope.userProfileInfo.id != undefined) {
+        var id = $scope.userProfileInfo.id
+        checkApi.getUserReviews(id)
+        .then(function(data){
+          console.log(data);
+          $scope.reviews = data.data;
+        });
+      };
     }
 
     $scope.init();

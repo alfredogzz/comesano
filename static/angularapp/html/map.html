@@ -3,7 +3,7 @@
 
   <div class="row">
     <div class="col-xs-12">
-  <ng-map default-style="true" center="current-location">
+  <ng-map id="map" on-tilesloaded="initMap()" default-style="true" center="current-location">
     <info-window position="current-location" zoom="10">
       <span>Loation found using HTML5.</span>
     </info-window>

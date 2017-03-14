@@ -2,6 +2,7 @@ dj-database-url==0.4.2
 Django==1.10.2
 django-angular==0.8.4
 djangorestframework==3.4.7
+djoser==0.5.4
 gunicorn==19.6.0
 Pillow==3.4.1
 psycopg2==2.6.2

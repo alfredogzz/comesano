@@ -1,6 +1,6 @@
 (function() {
   var checkApi;
-  checkApi = function($q, $http, $rootScope, $filter) {
+  checkApi = function($q, $http, $rootScope, $filter, $cookies) {
     var service;
     service = {};
     dateAsString =  $filter('date')(new Date(), "yyyy-MM-dd HH:mm:ss");
@@ -111,6 +111,53 @@
         return defer.promise;
     };
 
+    service.login = function(username, pass){
+      var defer = $q.defer();
+      //http://127.0.0.1:8000/api/users/
+      var req = {
+          method: 'POST',
+          url: api_auth_url + 'login/',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': $cookies['csrftoken']
+          },
+          data:{
+              'username':username,
+              'password':pass
+          }
+        }
+        $http(req)
+        .then(function(data){
+          return defer.resolve(data)
+        },function(data){
+          return defer.resolve(data)
+        });
+        return defer.promise;
+    };
+
+    service.logout = function(token){
+      var defer = $q.defer();
+      //http://127.0.0.1:8000/api/users/
+      var req = {
+          method: 'POST',
+          url: api_auth_url + 'logout/',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': $cookies['csrftoken']
+          },
+          data:{
+              'Authorization': ' Token '+ token
+          }
+        }
+        $http(req)
+        .then(function(data){
+          return defer.resolve(data)
+        },function(data){
+          return defer.resolve(data)
+        });
+        return defer.promise;
+    };
+
     service.getUserInfoByUsername = function(username){
       var defer = $q.defer();
       //http://127.0.0.1:8000/api/usersByUsername/username
@@ -145,6 +192,8 @@
           });
       return defer.promise
     };
+
+
 
     return service;
   };
