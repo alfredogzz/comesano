@@ -32,7 +32,7 @@
         console.log(map.getCenter());
         $scope.myLocation = map.getCenter();
         console.log($scope.myLocation);
-        //arreglar marcadores repetidos
+        //arreglar marcadores repetidos 
         $scope.mainmarker = new google.maps.Marker({
           position: $scope.myLocation,
           label: 'Tu',

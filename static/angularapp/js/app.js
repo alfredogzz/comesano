@@ -59,6 +59,6 @@ module.config(['$stateProvider', '$urlRouterProvider',
         $urlRouterProvider.otherwise('/home');
     }]);
 
-api_url = 'http://localhost:8000/api/'
-api_auth_url = 'http://localhost:8000/auth/'
-// api_url = 'https://come-sano.herokuapp.com/api/'
+//api_url = 'http://localhost:8000/api/'
+//api_auth_url = 'http://localhost:8000/auth/'
+ api_url = 'https://come-sano.herokuapp.com/api/'
