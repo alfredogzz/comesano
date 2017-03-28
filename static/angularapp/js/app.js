@@ -1,4 +1,4 @@
-var module = angular.module("vegApp", ['ui.router', 'uiRouterStyles', 'ui.bootstrap', 'toaster', 'ngAnimate', 'ngMap', 'ngCookies'] );
+var module = angular.module("vegApp", ['ui.router', 'uiRouterStyles', 'ui.bootstrap', 'toaster', 'ngAnimate', 'ngMap', 'ngCookies', 'angularSpinners',] );
 module.config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('[[').endSymbol(']]');
 });

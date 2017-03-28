@@ -1,7 +1,7 @@
 (function() {
   var MapCtrl;
 
-  MapCtrl = function($scope, $state, $stateParams, $http, $uibModal, toaster, NgMap, checkApi) {
+  MapCtrl = function($scope, $state, $stateParams, $timeout , $http, $uibModal, toaster, NgMap, checkApi) {
     $scope.restaurants = [];
     $scope.restaurantmarkers = [];
     $scope.map;
@@ -17,42 +17,47 @@
     }
 
     $scope.calcDistance=function(p1, p2) {
+      console.log(p1.toString);
+      console.log(p2.toString);
       return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
     }
 
-    $scope.initMap = function(){
-      console.log('sss');
-      $scope.mapIsLoaded = true;
-    };
+    $scope.loading = true;
 
     NgMap.getMap("map").then(function(map) {
-      var goforit = true;
-        console.log('another');
-        if ($scope.mapIsLoaded) {
-          goforit = false;
-          $scope.map = map;
-          $scope.myLocation = map.getCenter();
-          console.log($scope.myLocation);
-          $scope.mainmarker = new google.maps.Marker({
-            position: $scope.myLocation,
-            label: 'Tu',
-            map: map,
-            title: 'Locacion Actual'
-          });
-          $scope.getRestaurants($scope.map, $stateParams.searchParams);
-        };
-      
+      console.log(map);
+
+      $timeout(function() {
+        $scope.map = map;
+        console.log(map.getCenter());
+        $scope.myLocation = map.getCenter();
+        console.log($scope.myLocation);
+        //arreglar marcadores repetidos
+        $scope.mainmarker = new google.maps.Marker({
+          position: $scope.myLocation,
+          label: 'Tu',
+          map: map,
+          title: 'Locacion Actual'
+        });
+        $scope.getRestaurants($scope.map, $stateParams.searchParams);
+        $scope.loading = false;
+      }, 3500);
+
     });
 
     $scope.getRestaurants=function(myMap, params){
       checkApi.checkRestaurants()
       .then(function(data){
         $scope.restaurants = data.data;
-        //searchParams empty
+        console.log(data);
         for (var index in $scope.restaurants) {
           var item = $scope.restaurants[index];
-          var p1 = new google.maps.LatLng(parseFloat(item.location_lat), parseFloat(item.location_lon));
-            item.distance = $scope.calcDistance(p1, $scope.myLocation);
+          var lat = parseFloat(item.location_lat);
+          var lon = parseFloat(item.location_lon);
+          var p1 = new google.maps.LatLng(lat, lon);
+          console.log(p1);
+          console.log($scope.myLocation);
+          item.distance = $scope.calcDistance(p1, $scope.myLocation);
           }
           //searchparams not empty
           if (params != null){
