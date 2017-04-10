@@ -2,38 +2,37 @@
 <div  class="container-fluid fondos fondo">
 
   <div class="row">
-    <div class="col-xs-12">
+    <div  id="mapContainer" class="col-xs-12">
 
-  <ng-map id="map" on-tilesloaded="initMap()" default-style="true"  center="current-location">
-    <info-window position="current-location" zoom="10">
+  <ng-map id="map" on-tilesloaded="initMap()" center='current-position' default-style="true" >
+    <info-window zoom="10">
       <span>Loation found using HTML5.</span>
     </info-window>
   </ng-map>
     </div>
   </div>
-  <spinner name="booksSpinner" show="loading"></spinner> 
-      <table class="table table-hover">
-        <thead>
-          <tr class="titulo">
-            <th >#</th>
-            <th>Nombre</th>
-            <th>Distancia</th>
-          </tr>
-        </thead>
-      </table>
+  <spinner name="booksSpinner" show="loading"></spinner>
 
-  <div class="row">
-    <div class="row" ng-repeat="res in restaurants">
-      <a ui-sref="restaurant_detail({id:res.id})" class="rest">
-      <div class="col-xs-1">
-        [[res.id]]
-      </div>
-      <div class="col-xs-6">
-        [[res.nombre]]
-      </div>
-      <div class="col-xs-4">
-        [[res.distance]] km
-      </div>
+  <div class="row" style="display:flex; margin-left:0px;">
+    <div ng-repeat="res in restaurants" class="rest">
+      <a ui-sref="restaurant_detail({id:res.id})" >
+        <div class="mdl-card mdl-shadow--3dp">
+                    <div class="mdl-card__media">
+                      <img src="http://placehold.it/350x150">
+                    </div>
+                    <div class="mdl-card__title">
+                       <h4 class="mdl-card__title-text">[[res.nombre]]</h4>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                      <span class="mdl-typography--font-light mdl-typography--subhead">[[res.id]]</span>
+                    </div>
+                    <div class="mdl-card__actions">
+                       <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                         [[res.distance]] km
+                         <i class="material-icons">chevron_right</i>
+                       </a>
+                    </div>
+                  </div>
       </a>
     </div>
   </div>

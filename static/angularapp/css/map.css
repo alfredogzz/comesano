@@ -3,7 +3,7 @@
         height: 400px;
       }
 .rest_list{
-    
+
 }
 
 .fondos{
@@ -86,23 +86,9 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
 
 .rest{
-    box-sizing: border-box;
-    color: rgb(39, 107, 235);
-
-    float: left;
-    height: 60px;
-    text-decoration: none;
-    text-size-adjust: 100%;
-    width: 1300px;
-    column-rule-color: rgb(119, 119, 119);
-    perspective-origin: 43.8906px 30px;
-    transform-origin: 43.8906px 30px;
-    border: 0px none rgb(119, 119, 119);
-    font: normal normal 600 normal 20px / 20px "Helvetica Neue", "Open Sans", Arial, sans-serif;
-    margin: 5px 0px;
-    outline: rgb(119, 119, 119) none 0px;
-    padding: 0px 15px;
+margin:5px; 
 }
+
 
 .titulos{
     box-sizing: border-box;
@@ -135,7 +121,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 #contenedor{
    overflow:hidden;
 }
- 
+
 #2{
    float: left;
    padding: 20px;

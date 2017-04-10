@@ -1,20 +1,20 @@
-<div id="contenedor" class="container-fluid fondo">
-      <div id="1" class=" titulo">
-      &nbsp;&nbsp;
-        Nombre &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        Descripcion
-      </div>
-    <div  ng-repeat="res in restaurants">
-      <a ui-sref="restaurant_detail({id:res.id})" class="links">
-      <div class="col-xs-4">
-        [[res.nombre]]
-      </div>
-      <div class="col-xs-6">
-        [[res.descripcion]]
-      </div>
-      <div class="col-xs-2">
-        <span uib-rating ng-model="res.avg" max="5"  read-only="true" aria-labelledby="default-rating"></span>
-      </div>
+<div id="contenedor" class="container-fluid fondo" style="display:flex;" >
+    <div ng-repeat="res in restaurants" class="rest">
+      <a ui-sref="restaurant_detail({id:res.id})" >
+        <div class="mdl-card mdl-shadow--3dp">
+                    <div class="mdl-card__media">
+                      <img src="http://placehold.it/350x150">
+                    </div>
+                    <div class="mdl-card__title">
+                       <h4 class="mdl-card__title-text">[[res.nombre]]</h4>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                      <span class="mdl-typography--font-light mdl-typography--subhead">[[res.descripcion]]</span>
+                    </div>
+                    <div class="mdl-card__actions">
+                      <span class="last" uib-rating ng-model="res.avg" max="5"  read-only="true" aria-labelledby="default-rating"></span>
+                    </div>
+                  </div>
       </a>
     </div></script>
 </div>

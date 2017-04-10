@@ -29,14 +29,17 @@
     outline: rgb(52, 73, 94) none 0px;
 }
 
+.rest{
+margin:5px;
+}
+
+
 #contenedor{
    overflow:hidden;
 }
- 
-#1{
-   float: left;
-   padding: 20px;
-   margin: 50px;
+
+.last{
+  margin-left: 8px;
 }
 
 .fondo{
