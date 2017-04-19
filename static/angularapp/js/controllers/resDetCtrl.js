@@ -5,7 +5,8 @@
     $scope.restaurant_id=$stateParams.id;
     $scope.restaurant_info=[];
     $scope.userLogged = $cookies.getObject('userIsLogged');
-    $scope.userInfo = JSON.parse($cookies.get('userInfo'));
+    $scope.userID = $cookies.get('userID');
+    console.log($scope.userID);
     $scope.onCourse = false;
     $scope.reviewComment;
     $scope.csrf_token = document.getElementById('csrf_token_input').value;
@@ -14,6 +15,8 @@
     $scope.rest = {};
     $scope.rest.rate = 0;
     $scope.review_list = {};
+    $scope.userProfileInfo={};
+
 
     $scope.popsuccess = function(title_text, body_text){
       toaster.pop('success', title_text, body_text);
@@ -67,7 +70,7 @@
       newInfo.calificacion = $scope.rate;
       newInfo.comentario = $scope.reviewComment;
       newInfo.restaurant = api_url + 'restaurants/' + $scope.restaurant_info.id +'/';
-      newInfo.user = api_url + 'users/' + $scope.userInfo.id + '/';
+      newInfo.user = api_url + 'users/' + $scope.userID + '/';
       checkApi.newReview(newInfo, $scope.csrf_token)
       .then(function(data){
         console.log(data);
@@ -91,6 +94,11 @@
         }
       });
     }
+
+    $scope.getUserInfo = function(){
+
+    }
+
 
     $scope.getRestaurantInfo($scope.restaurant_id);
     $scope.getResenas();

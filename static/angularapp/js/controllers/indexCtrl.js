@@ -48,6 +48,11 @@
           console.log(data);
           $cookies.put('auth_token', data.auth_token)
           $cookies.put('userUsername', $scope.navLogin.user);
+          //$cookies.put('userID', data);
+          checkApi.getUserInfoByUsername($scope.navLogin.user)
+          .then(function(data){
+            $cookies.put('userID', data.data[0].id);
+          })
           $cookies.put('userIsLogged', true);
           $scope.popsuccess("Has entrado a tu sesion", "Listo para comer?");
           $state.go("home", {}, { reload: true });

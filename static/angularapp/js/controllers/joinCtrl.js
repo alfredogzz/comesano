@@ -22,11 +22,18 @@
         checkApi.login($scope.loginInfo.username, $scope.loginInfo.password)
         .then(function(data){
         	// success case
-          console.log(data);
-          $cookies.put('auth_token', data.auth_token)
-          $cookies.put('userUsername', $scope.loginInfo.username);
-          $cookies.put('userIsLogged', true);
-        	$state.go("perfil");
+          if (data.status == 200) { //created successfully
+            $cookies.put('authtoken', data.auth_token)
+            $cookies.put('userUsername', $scope.loginInfo.username);
+            $cookies.put('userIsLogged', true);
+            checkApi.getUserInfoByUsername($scope.navLogin.user)
+            .then(function(data){
+              $cookies.put('userID', data.data[0].id);
+            })
+          	$state.go("perfil");
+          }else if(data.status == 400){
+            $scope.poperror("Error", "Tu usuario o contrasena son incorrectos");
+          }
         },function(data){
         	// error case
         	$scope.errors = data;

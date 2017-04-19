@@ -6,6 +6,8 @@
     $scope.username;
     $scope.userLogged = $cookies.getObject('userIsLogged');
     $scope.reviews = {};
+    $scope.userID = $cookies.get('userID');
+
 
     $scope.init = function(){
       if ($scope.userLogged) {
@@ -30,9 +32,9 @@
     }
 
     $scope.getReviews= function(){
-      if ($scope.userProfileInfo.id != undefined) {
-        var id = $scope.userProfileInfo.id
-        checkApi.getUserReviews(id)
+      if ($scope.userID != undefined) {
+        console.log($scope.userID);
+        checkApi.getUserReviews($scope.userID)
         .then(function(data){
           console.log(data);
           $scope.reviews = data.data;
