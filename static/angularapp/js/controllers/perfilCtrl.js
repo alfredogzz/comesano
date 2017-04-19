@@ -33,10 +33,8 @@
 
     $scope.getReviews= function(){
       if ($scope.userID != undefined) {
-        console.log($scope.userID);
         checkApi.getUserReviews($scope.userID)
         .then(function(data){
-          console.log(data);
           $scope.reviews = data.data;
         });
       };
