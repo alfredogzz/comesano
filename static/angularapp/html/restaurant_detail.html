@@ -1,7 +1,8 @@
 <div class="container-fluid fondo">
   <toaster-container></toaster-container>
   <div class="row restaurante1">
-    <div class="titulo" style="text-align:center">[[restaurant_info.nombre]]</div>
+    <div class="titulo" style="text-align:center">
+    <i class="material-icons" style="font-size: 42px;" >restaurant</i>[[restaurant_info.nombre]]</div>
 
   </div>
   <br>
@@ -31,15 +32,15 @@
   </div>
     <div class="animate-show" ng-show="onCourse">
     <span uib-rating ng-model="rate" max="max" titles="['one','two','three','four', 'five']" aria-labelledby="default-rating"></span>
-    <div class="form-group">
+    <div class="form-group boton">
       <label for="comment">Comentario</label>
       <textarea class="form-control" rows="2" ng-model="reviewComment"></textarea>
-      <button type="button" ng-click="sendResena()" class="btn btn-warning">Enviar</button>
+      <button type="button" ng-click="sendResena()" class="btn btn-warning boton">Enviar</button>
     </div>
     </div>
   </div>
     <br>
-  <table class="table table-hover">
+  <table class="table table-hover ">
     <thead>
       <tr class="tit_tabla">
         <th>Usuario</th>
@@ -47,7 +48,7 @@
         <th>Comentario</th>
       </tr>
     </thead>
-      <tr clas="texto" ng-repeat="review in review_list">
+      <tr class="texto" ng-repeat="review in review_list">
         <td>[[review.user_name]]</td>
         <td><span uib-rating ng-model="review.calificacion" max="max"  read-only="true" aria-labelledby="default-rating"></span></td>
         <td>[[review.comentario]]</td>

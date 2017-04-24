@@ -1,6 +1,10 @@
 
 <div  class="container-fluid fondos fondo">
-
+  <div class=" col-xs-9">
+      <h4 class="nombre col-xs-9 titulo">
+      <i class="material-icons" style="font-size: 35px;">map</i> 
+      Mapa</h4>
+  </div>
   <div class="row">
     <div  id="mapContainer" class="col-xs-12">
 
@@ -10,9 +14,13 @@
     </info-window>
   </ng-map>
     </div>
+    <div class=" col-xs-9">
+      <h4 class="nombre col-xs-9 titulo">
+      <i class="material-icons" style="font-size: 35px;">restaurant</i> 
+      Restaurantes</h4>
+  </div>
   </div>
   <spinner name="booksSpinner" show="loading"></spinner>
-
   <div class="row" style="display:flex; margin-left:0px;">
     <div ng-repeat="res in restaurants" class="rest">
       <a ui-sref="restaurant_detail({id:res.id})" >
