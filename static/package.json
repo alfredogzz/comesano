@@ -1,0 +1,11 @@
+{
+  "name": "comesano",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ger": "0.0.99",
+    "requirejs": "^2.3.3"
+  }
+}

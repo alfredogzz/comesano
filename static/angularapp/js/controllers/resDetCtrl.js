@@ -86,9 +86,8 @@
       .then(function(data){
         $scope.reviewCount = data.data[0].count
         return checkApi.checkRestaurantsReviewsAvg($scope.restaurant_id);
-
       }).then(function(data){
-        if($scope.reviewCount>=5){
+        if($scope.reviewCount>=3){
         $scope.reviewAvg = data.data[0].calificacion__avg
         $scope.rest.rate = $scope.reviewAvg;
         }
