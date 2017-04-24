@@ -1,7 +1,7 @@
 (function() {
   var indexCtrl;
 
-  indexCtrl = function($scope, $state, $stateParams, $http, $uibModal, toaster, djangoAuth, checkApi, $cookies) {
+  indexCtrl = function($scope, $state, $stateParams, $http, $uibModal, toaster, djangoAuth, checkApi, $cookies, GERService) {
     $scope.csrf_token = document.getElementById('csrf_token_input').value;
     $cookies.csrftoken = $scope.csrf_token;
     $cookies.put('token',$scope.csrf_token);

@@ -3,8 +3,8 @@
   GERService = function($q, $http, $rootScope, $filter, $cookies) {
     var service;
     service = {};
-    var g = require('ger.js')
-
+    var g = recomendacion;
+    console.log(g);
     service.checkRestaurants = function() {
       var defer = $q.defer();
       //http://127.0.0.1:8000/api/restaurants/

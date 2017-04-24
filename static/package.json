@@ -5,6 +5,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "coffeeify": "^2.1.0",
     "ger": "0.0.99",
     "requirejs": "^2.3.3"
   }
