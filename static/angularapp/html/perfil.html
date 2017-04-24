@@ -5,14 +5,14 @@
       <img src="http://www.translationwebshop.com/wp-content/themes/translationwebshop/images/img_placeholder_avatar.jpg" class="Img" alt="Cinque Terre">
     </div>
     <div class=" col-xs-9">
-      <h4 class="nombre col-xs-9">[[userProfileInfo.nombre_completo]]</h4>
+      <h4 class="nombre col-xs-9 titulo">[[userProfileInfo.nombre_completo]]</h4>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <table class="table table-hover">
+      <table class="table table-hover ">
         <thead>
-          <tr class="titulos">
+          <tr class="tit_tabla">
             <th>
             <i class="material-icons">restaurant</i>
             Restaurant
@@ -27,12 +27,10 @@
             </th>
           </tr>
         </thead>
-        <tbody>
-          <tr ng-repeat="review in reviews">
+          <tr class="texto" ng-repeat="review in reviews">
             <td>[[review.restaurant_name]]</td>
             <td> [[review.calificacion]]     <span uib-rating ng-model="review.calificacion" max="max"  read-only="true" aria-labelledby="default-rating"></span></td>
             <td>[[review.comentario]]</td>
-          </tr>
         </tbody>
       </table>
         </div>
