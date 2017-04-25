@@ -3,18 +3,29 @@
   <div class="row restaurante1">
     <div class="titulo" style="text-align:center">
     <i class="material-icons" style="font-size: 42px;" >restaurant</i>[[restaurant_info.nombre]]</div>
-
   </div>
   <br>
   <br>
   <br>
-  <div class="col-xs-2" style="text-align:left">
-  <span uib-rating ng-model="rest.rate" max="max"  read-only="true" aria-labelledby="default-rating"></span>
+  <div ng-if="userLogged">
+    <div class="col-xs-6" style="text-align:center">
+    <span uib-rating ng-model="rest.rate" max="max"  read-only="true" aria-labelledby="default-rating"></span>
+    </div>
+    <div class="col-xs-6" style="text-align:center">
+      <i ng-if="!userFavorite" class="material-icons" style="font-size: 20px;" >favorite_border</i>
+      <i ng-if="userFavorite" class="material-icons" style="font-size: 20px;" >favorite</i>
+    </div>
   </div>
+  <div ng-if="!userLogged">
+    <div class="col-xs-12" style="text-align:center">
+    <span uib-rating ng-model="rest.rate" max="max"  read-only="true" aria-labelledby="default-rating"></span>
+    </div>
+  </div>
+  <br>
   <br>
   <div class="rowdesc">
-    <div class="col-xs-6">
-      <p class="desc" style="text-align:left">
+    <div class="col-xs-12">
+      <p class="desc" style="text-align:center">
         [[restaurant_info.descripcion]]
       </p>
     </div>

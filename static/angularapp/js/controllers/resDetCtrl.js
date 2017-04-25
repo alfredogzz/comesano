@@ -16,6 +16,8 @@
     $scope.rest.rate = 0;
     $scope.review_list = {};
     $scope.userProfileInfo={};
+    $scope.userFavorite = 0;
+    $scope.userFavorites = {};
 
 
     $scope.poperror = function(title_text, body_text){
@@ -65,7 +67,6 @@
       checkApi.checkRestaurantsReviewsList($scope.restaurant_id)
       .then(function(data){
         $scope.review_list=data.data;
-        console.log($scope.review_list);
       });
     }
 
@@ -106,14 +107,27 @@
       });
     }
 
-    $scope.getUserInfo = function(){
-
+    $scope.isUserFav = function(){
+      checkApi.getUserFavorites($scope.userID)
+      .then(function(data){
+        $scope.userFavorites = data.data;
+        if ($scope.userFavorites .length > 0) {
+          for (var fav in $scope.userFavorites ) {
+            if ($scope.restaurant_id == $scope.userFavorites[fav].restaurant) {
+              $scope.userFavorite = 1;
+            }
+          }
+        }
+      });
     }
 
 
     $scope.getRestaurantInfo($scope.restaurant_id);
     $scope.getResenas();
     $scope.reviews();
+    if ($scope.userLogged) {
+      $scope.isUserFav()
+    }
   }
 
 
