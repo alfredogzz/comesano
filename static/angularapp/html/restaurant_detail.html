@@ -1,10 +1,8 @@
 <div class="container-fluid fondo">
   <toaster-container></toaster-container>
-  <div class="row restaurante1">
-    <div class="titulo" style="text-align:center">
-    <i class="material-icons" style="font-size: 42px;" >restaurant</i>[[restaurant_info.nombre]]</div>
+  <div class="row" style="margin-top:10px; padd">
+    <div class="titulo" style="text-align:center">[[restaurant_info.nombre]]</div>
   </div>
-  <br>
   <br>
   <br>
   <div ng-if="userLogged">
@@ -12,8 +10,8 @@
     <span uib-rating ng-model="rest.rate" max="max"  read-only="true" aria-labelledby="default-rating"></span>
     </div>
     <div class="col-xs-6" style="text-align:center">
-      <i ng-if="!userFavorite" class="material-icons" style="font-size: 20px;" >favorite_border</i>
-      <i ng-if="userFavorite" class="material-icons" style="font-size: 20px;" >favorite</i>
+        <i ng-if="!userFavorite" ng-click="favoriteChange()" class="material-icons" style="font-size: 20px;" >favorite_border</i>
+        <i ng-if="userFavorite" ng-click="favoriteChange()" class="material-icons" style="font-size: 20px;" >favorite</i>
     </div>
   </div>
   <div ng-if="!userLogged">

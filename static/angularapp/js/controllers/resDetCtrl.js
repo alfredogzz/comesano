@@ -18,6 +18,7 @@
     $scope.userProfileInfo={};
     $scope.userFavorite = 0;
     $scope.userFavorites = {};
+    $scope.userFavoriteInfo = {};
 
 
     $scope.poperror = function(title_text, body_text){
@@ -115,12 +116,18 @@
           for (var fav in $scope.userFavorites ) {
             if ($scope.restaurant_id == $scope.userFavorites[fav].restaurant) {
               $scope.userFavorite = 1;
+              $scope.userFavoriteInfo = $scope.userFavorites[fav];
             }
           }
         }
       });
     }
 
+    $scope.favoriteChange = function(){
+      console.log($scope.userFavoriteInfo);
+      //cambiar estatus de favorito permanentemente
+      $scope.userFavorite = !$scope.userFavorite;
+    };
 
     $scope.getRestaurantInfo($scope.restaurant_id);
     $scope.getResenas();

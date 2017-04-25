@@ -204,6 +204,18 @@
       return defer.promise
     };
 
+    service.deleteUserFavorite = function(id){
+      var defer = $q.defer();
+      $http({method : 'GET', url : api_url + 'UserFavoritebyId/'+ id + '.json'})
+          .then(function(data) {
+              defer.resolve(data);
+          }, function(error){
+            defer.reject(error);
+          });
+      return defer.promise
+    };
+
+
 
     return service;
   };
