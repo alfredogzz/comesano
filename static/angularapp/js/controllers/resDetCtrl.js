@@ -6,6 +6,7 @@
     $scope.restaurant_info=[];
     $scope.userLogged = $cookies.getObject('userIsLogged');
     $scope.userID = $cookies.get('userID');
+    $scope.username = $cookies.get('userUsername');
     console.log($scope.userID);
     $scope.onCourse = false;
     $scope.reviewComment;
@@ -129,11 +130,21 @@
       $scope.userFavorite = !$scope.userFavorite;
     };
 
+    $scope.getUserID = function(){
+      checkApi.getUserInfoByUsername($scope.username)
+      .then(function(data){
+        $cookies.put('userID', data.data[0].id);
+      })
+    };
+
     $scope.getRestaurantInfo($scope.restaurant_id);
     $scope.getResenas();
     $scope.reviews();
     if ($scope.userLogged) {
-      $scope.isUserFav()
+      if ($scope.userID === undefined) {
+        $scope.getUserID();
+      }
+      $scope.isUserFav();
     }
   }
 
