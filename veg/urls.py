@@ -24,12 +24,14 @@ router.register(r'users', views.UserViewSet)
 router.register(r'usersprofiles',views.UserProfileList)
 router.register(r'restaurants',views.RestaurantList)
 router.register(r'reviews',views.ReviewList)
+router.register(r'userfavorites',views.UserFavoriteList)
 router.register(r'usersByUsername/(?P<username>[a-z0-9-]+)', views.UserDetail, base_name="usersByUsername")
 router.register(r'userProfileByUserId/(?P<id>[a-z0-9-]+)', views.UserProfileDetail, base_name="userProfileByUserId")
 router.register(r'RestaurantReviewAvg/(?P<id>[a-z0-9-]+)', views.RestaurantReviewAverage, base_name="RestaurantReviewAvg")
 router.register(r'RestaurantReviewCount/(?P<id>[a-z0-9-]+)', views.RestaurantReviewCount, base_name="RestaurantReviewCount")
 router.register(r'RestaurantReviews/(?P<id>[a-z0-9-]+)', views.RestaurantReviewList, base_name="RestaurantReviewList")
 router.register(r'UserReviews/(?P<id>[a-z0-9-]+)', views.UserReviewList, base_name="UserReviewList")
+router.register(r'UserFavoritebyId/(?P<id>[a-z0-9-]+)', views.UserFavoritesbyUser, base_name="UserFavoritebyId")
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

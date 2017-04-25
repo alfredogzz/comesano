@@ -18,6 +18,10 @@
     $scope.userProfileInfo={};
 
 
+    $scope.poperror = function(title_text, body_text){
+      toaster.pop('error', title_text, body_text);
+    }
+
     $scope.popsuccess = function(title_text, body_text){
       toaster.pop('success', title_text, body_text);
     }
@@ -71,11 +75,19 @@
       newInfo.comentario = $scope.reviewComment;
       newInfo.restaurant = api_url + 'restaurants/' + $scope.restaurant_info.id +'/';
       newInfo.user = api_url + 'users/' + $scope.userID + '/';
-      checkApi.newReview(newInfo, $scope.csrf_token)
-      .then(function(data){
-        console.log(data);
-        $scope.popsuccess("Tu resena se ha procesado","Gracias por tu retroalimentacion!")
-      });
+      if (newInfo.comentario) {
+        checkApi.newReview(newInfo, $scope.csrf_token)
+        .then(function(data, error){
+          if (data.status === 201) {
+            $scope.popsuccess("Tu resena se ha procesado","Gracias por tu retroalimentacion!")
+          }else {
+            $scope.poperror("No se ha podido mandar tu resena","Intentalo de nuevo!")
+          }
+        });
+      }else {
+        $scope.poperror("Necesitas ingresar un comentario","Intentalo de nuevo!")
+      }
+
       $scope.onCourse = !($scope.onCourse);
       $scope.rate = 3;
       $scope.reviewComment = '';

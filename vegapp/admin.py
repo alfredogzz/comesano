@@ -13,8 +13,13 @@ class ReviewAdmin(admin.ModelAdmin):
 class UserAdmin(admin.ModelAdmin):
     list_display = ('username', 'email', 'password', 'is_staff', 'is_superuser' ,'last_login')
 
+class UserFavoriteAdmin(admin.ModelAdmin):
+    list_display = ('user', 'restaurant')
+
+
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Restaurant, RestaurantAdmin)
 admin.site.register(Review, ReviewAdmin)
+admin.site.register(UserFavorite, UserFavoriteAdmin)

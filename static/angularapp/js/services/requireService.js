@@ -4,18 +4,51 @@
     var service;
     service = {};
     var g = recomendacion;
-    console.log(g);
-    service.checkRestaurants = function() {
-      var defer = $q.defer();
-      //http://127.0.0.1:8000/api/restaurants/
-      $http({method : 'GET', url : api_url + 'restaurants.json'})
-          .then(function(data) {
-              defer.resolve(data);
-          }, function(error){
-            defer.reject(error);
-          });
-      return defer.promise
-    };
+var esm = new g.MemESM()
+var ger = new g.GER(esm);
+
+ger.initialize_namespace('restaurant')
+.then( function() {
+  return ger.events([
+    {
+      namespace: 'restaurant',
+      person: 'carlos',
+      action: 'likes',
+      thing: 'govinda',
+      expires_at: '2020-06-06'
+    },
+    {
+      namespace: 'restaurant',
+      person: 'carlos',
+      action: 'likes',
+      thing: 'super salads',
+      expires_at: '2020-06-06'
+    },
+    {
+      namespace: 'restaurant',
+      person: 'aida',
+      action: 'likes',
+      thing: 'govinda',
+      expires_at: '2020-06-06'
+    },
+  ])
+})
+.then( function() {
+  // What things might aida like?
+  return ger.recommendations_for_person('restaurant', 'aida', {actions: {likes: 1}})
+})
+.then( function(recommendations) {
+  console.log("\nRecommendations For 'aida'")
+  console.log(JSON.stringify(recommendations,null,2))
+})
+.then( function() {
+  // What things are similar to govinda?
+  return ger.recommendations_for_thing('restaurant', 'govinda', {actions: {likes: 1}})
+})
+.then( function(recommendations) {
+  console.log("\nRecommendations Like 'govinda'")
+  console.log(JSON.stringify(recommendations,null,2))
+})
 
     return service;
   };
