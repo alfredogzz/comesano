@@ -7,14 +7,6 @@ module.config(function ($interpolateProvider) {
 module.config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider){
       $stateProvider
-        .state('home', {
-          url: '/home',
-          templateUrl: static_url + 'angularapp/html/home.html',
-          controller: 'homeCtrl',
-          data: {
-            css: static_url + 'angularapp/css/home.css'
-          }
-        })
         .state('mapa',{
           url: '/mapa',
           templateUrl: static_url + 'angularapp/html/map.html',
@@ -56,10 +48,10 @@ module.config(['$stateProvider', '$urlRouterProvider',
             css: static_url + 'angularapp/css/join.css'
           }
         })
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/map');
     }]);
 
-//api_url = 'http://localhost:8000/api/'
-//api_auth_url = 'http://localhost:8000/auth/'
- api_url = 'https://come-sano.herokuapp.com/api/';
- api_auth_url = 'https://come-sano.herokuapp.com/auth/';
+api_url = 'http://localhost:8000/api/'
+api_auth_url = 'http://localhost:8000/auth/'
+ // api_url = 'https://come-sano.herokuapp.com/api/';
+ // api_auth_url = 'https://come-sano.herokuapp.com/auth/';
