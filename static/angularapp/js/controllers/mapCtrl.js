@@ -7,7 +7,8 @@
     $scope.map;
     $scope.myLocation;
     $scope.mapIsLoaded = false;
-    $scope.text = "Bienvenido! Usa los filtros para refinar tu busqueda o haz click en alguna opcion para ver mas info!"
+    $scope.barra = {}
+    $scope.barra.text = "Bienvenido! Usa los filtros para refinar tu busqueda o haz click en alguna opcion para ver mas info!"
     $scope.progressbar = ngProgressFactory.createInstance();
     $scope.progressbar.setHeight('10px');
     $scope.progressbar.setParent(document.getElementById('mapContainer'));
@@ -52,6 +53,13 @@
     });
 
 
+    $scope.attachSecretMessage= function(marker, secretMessage)  {
+      marker.addListener('click', function() {
+        console.log(secretMessage);
+        $scope.barra.text = secretMessage.nombre;
+        $scope.$apply();
+      });
+    };
 
     $scope.getRestaurants=function(myMap, params){
       checkApi.checkRestaurants()
@@ -95,12 +103,13 @@
           for (var i in $scope.restaurants) {
             var restaurant = $scope.restaurants[i]
             var myLatLng = {lat: parseFloat(restaurant.location_lat), lng: parseFloat(restaurant.location_lon)};
-            marker = new google.maps.Marker({
+            var marker = new google.maps.Marker({
               position: myLatLng,
               map: myMap,
               label: (parseInt(restaurant.id)).toString(),
               title: 'marker for' + restaurant.nombre
             });
+            $scope.attachSecretMessage(marker, restaurant);
             $scope.restaurantmarkers.push(marker);
             }
           var newBoundary = new google.maps.LatLngBounds();
@@ -112,6 +121,7 @@
           newBoundary.extend($scope.mainmarker.position)
           myMap.fitBounds(newBoundary);
           myMap.setZoom((myMap.getZoom()));
+
         });
       };
 
