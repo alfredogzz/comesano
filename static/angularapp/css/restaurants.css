@@ -25,7 +25,8 @@
     column-rule-color: rgb(52, 73, 94);
     perspective-origin: 352.5px 22px;
     transform-origin: 352.5px 22px;
-    font: normal normal bold normal 40px / 44px Lato, Helvetica, Arial, sans-serif;
+  font-size: 44px;
+  font-family: 'Roboto', sans-serif;
     outline: rgb(52, 73, 94) none 0px;
 }
 
@@ -45,7 +46,7 @@ margin:5px;
 .fondo{
     height: 100%;
     width: 100%;
-    background-color: #99f19e;
+    background-color: #99ccff;
 /*background: #02AAB0;
 background: -webkit-linear-gradient(to left, #02AAB0 , #00CDAC);
 background: linear-gradient(to left, #02AAB0 , #00CDAC);
@@ -111,4 +112,12 @@ a.animated-button:link, a.animated-button:visited {
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
     transition: all 1s ease;
+}
+
+.mdl-card {
+  width: 300px;
+  height: 300px;
+  margin-top:10px;
+  margin-bottom:40px;
+  margin-left: 40px;
 }

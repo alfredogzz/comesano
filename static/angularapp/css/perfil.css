@@ -1,7 +1,7 @@
 .fondo{
     height: 100%;
     width: 100%;
-    background-color: #99f19e;
+    background-color: #99ccff;
 /*background: #02AAB0;
 background: -webkit-linear-gradient(to left, #02AAB0 , #00CDAC);
 background: linear-gradient(to left, #02AAB0 , #00CDAC);
@@ -20,7 +20,8 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     perspective-origin: 352.5px 22px;
     transform-origin: 352.5px 22px;
     border: 5px none rgb(52, 73, 94);
-    font: normal normal bold normal 40px / 44px Lato, Helvetica, Arial, sans-serif;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
     outline: rgb(52, 73, 94) none 0px;
 }
 
@@ -117,7 +118,8 @@ a.animated-button:link, a.animated-button:visited {
     perspective-origin: 352.5px 22px;
     transform-origin: 352.5px 22px;
     border: 5px none rgb(52, 73, 94);
-    font: normal normal bold normal 20px / 24px Lato, Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
     outline: rgb(52, 73, 94) none 0px;
 }
 
@@ -126,14 +128,16 @@ a.animated-button:link, a.animated-button:visited {
 }
 
 .titulo {
-  font-family: 'Francois One', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 45px;
+  
 }
 
 .tit_tabla {
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
-  color: rgb(0, 0, 0);  
+  text-align: center;
+  color: rgb(0, 0, 0); 
 }
 
 .texto {
