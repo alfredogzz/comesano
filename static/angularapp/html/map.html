@@ -1,51 +1,82 @@
 
 <div  class="container-fluid fondos fondo">
-  <div class=" col-xs-9">
-      <h4 class="nombre col-xs-9 titulo">
-      <i class="material-icons" style="font-size: 35px;">map</i> 
-      Mapa</h4>
-  </div>
   <div class="row">
-    <div  id="mapContainer" class="col-xs-12">
+    <div class="col-xs-3 sidenav">
+      <div class="col-xs-12 filtros">
+          <label for="usr"> Distancia (KM):</label>
+          <input type="number" min="1" class="form-control button-filtros " id="usr" ng-model="busqueda.distancia">
+      </div>
 
-  <ng-map id="map" on-tilesloaded="initMap()" center='current-position' default-style="true" >
-    <info-window zoom="10">
-      <span>Loation found using HTML5.</span>
-    </info-window>
-  </ng-map>
+      <div class="col-xs-12 filtros">
+          <label for="sel1">Costo: </label>
+          <select class="form-control button-filtros " id="sel1" ng-model="busqueda.costo">
+            <option>$</option>
+            <option>$$</option>
+            <option>$$$</option>
+            <option>Todos</option>
+          </select>
+      </div>
+
+      <div class="col-xs-12 filtros">
+        <label for="vegfriendly"> Vegetariano:</label>
+          <div >
+            <label class="vegfriendly">
+              <input type="checkbox"   ng-model="busqueda.vegfriendly">
+            </label>
+          </div>
+        </div>
+        <button class="mdl-button mdl-js-button" style="color:white" ng-click="search()">Encontrar</button>
+      <div id="info" class="filtros ">
+        [[barra.text]]
+      </div>
     </div>
-    <div class=" col-xs-9">
-      <h4 class="nombre col-xs-9 titulo">
-      <i class="material-icons" style="font-size: 35px;">restaurant</i> 
-      Restaurantes</h4>
-  </div>
-  </div>
-  <spinner name="booksSpinner" show="loading"></spinner>
-  <div class="row" style="display:flex; margin-left:0px;">
-    <div ng-repeat="res in restaurants" class="rest">
-      <a ui-sref="restaurant_detail({id:res.id})" >
-        <div class="mdl-card mdl-shadow--3dp">
-                    <div class="mdl-card__media">
-                      <img src="http://placehold.it/350x150">
-                    </div>
-                    <div class="mdl-card__title">
-                       <h4 class="mdl-card__title-text">[[res.nombre]]</h4>
-                    </div>
-                    <div class="mdl-card__supporting-text">
-                      <span class="mdl-typography--font-light mdl-typography--subhead">[[res.id]]</span>
-                    </div>
-                    <div class="mdl-card__actions">
-                       <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
-                         [[res.distance]] km
-                         <i class="material-icons">chevron_right</i>
-                       </a>
-                    </div>
-                  </div>
-      </a>
+    <div class="col-xs-9">
+      <div class="row">
+        <div  id="mapContainer" class="col-xs-12">
+
+      <ng-map id="map" on-tilesloaded="initMap()" center='current-position' default-style="true" >
+        <info-window zoom="10">
+          <span>Loation found using HTML5.</span>
+        </info-window>
+      </ng-map>
+        </div>
+        <div class=" col-xs-12">
+          <h4 class="titulo col-xs-12" style="text-align:center">
+          <hr>
+          <i class="material-icons" style="font-size: 25px;">restaurant</i>
+          Restaurantes
+          </h4>
+      </div>
+      </div>
+      <spinner name="booksSpinner" show="loading"></spinner>
+      <div class="row" >
+        <div ng-repeat="res in restaurants" class="col-xs-4" >
+         <div >
+          <a ui-sref="restaurant_detail({id:res.id})" >
+            <div class="mdl-card mdl-shadow--3dp">
+                        <div class="mdl-card__media">
+                          <img src="http://placehold.it/350x150">
+                        </div>
+                        <div class="mdl-card__title">
+                           <h4 class="mdl-card__title-text">[[res.nombre]]</h4>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                          <span class="mdl-typography--font-light mdl-typography--subhead">[[res.id]]</span>
+                        </div>
+                        <div class="mdl-card__actions">
+                           <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                             [[res.distance]] km
+                             <i class="material-icons">chevron_right</i>
+                           </a>
+                        </div>
+                      </div>
+          </a>
+          </div>
+         </div>
+        </div>
     </div>
+  </div>
   </div>
   <!--
   <script src="http://maps.googleapis.com/maps/api/js?libraries=geometry"></script>
   -->
-
-</div>
