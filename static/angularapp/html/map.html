@@ -19,9 +19,9 @@
 
       <div class="col-xs-12 filtros">
         <label for="vegfriendly"> Vegetariano:</label>
-          <div id="vegfriendly">
-            <label>
-              <input type="checkbox"  class="divtext" id="vegfriendly" ng-model="busqueda.vegfriendly">
+          <div >
+            <label class="vegfriendly">
+              <input type="checkbox"   ng-model="busqueda.vegfriendly">
             </label>
           </div>
         </div>
@@ -41,13 +41,15 @@
       </ng-map>
         </div>
         <div class=" col-xs-12">
-          <h4 class="nombre col-xs-12" style="text-align:center">
-          <i class="material-icons" style="font-size: 19px;">restaurant</i>
+          <h4 class="titulo col-xs-12" style="text-align:center">
+          <hr>
+          <i class="material-icons" style="font-size: 25px;">restaurant</i>
           Restaurantes
           </h4>
       </div>
       </div>
       <spinner name="booksSpinner" show="loading"></spinner>
+
       <div class="row">
         <div ng-repeat="res in restaurants" class="col-xs-4" style="margin-top:10px;">
           <a ui-sref="restaurant_detail({id:res.id})" >

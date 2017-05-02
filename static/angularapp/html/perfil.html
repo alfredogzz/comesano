@@ -10,14 +10,13 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <table class="table table-hover ">
-        <thead>
-          <tr class="tit_tabla">
-            <th>
+      <table class="table " >
+          <tr class="tit_tabla" >
+            <th align="center">
             <i class="material-icons">restaurant</i>
             Restaurant
             </th>
-            <th>
+            <th align="center">
             <i class="material-icons">star</i>
             Calificacion
             </th>
@@ -26,12 +25,10 @@
             Comentario
             </th>
           </tr>
-        </thead>
           <tr class="texto" ng-repeat="review in reviews">
             <td>[[review.restaurant_name]]</td>
             <td> [[review.calificacion]]     <span uib-rating ng-model="review.calificacion" max="max"  read-only="true" aria-labelledby="default-rating"></span></td>
             <td>[[review.comentario]]</td>
-        </tbody>
       </table>
         </div>
       </div>

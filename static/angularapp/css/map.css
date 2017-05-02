@@ -19,8 +19,9 @@
 .sidenav .filtros {
     padding: 8px 8px 8px 8px;
     text-decoration: none;
-    font-size: 25px;
-    color: green;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #0066cc;
     display: block;
     transition: 0.3s
 }
@@ -97,7 +98,7 @@ a.animated-button:link, a.animated-button:visited {
 .fondo{
     height: 100%;
     width: 100%;
-    background-color: #ffc09b;
+    background-color: #99ccff;
 /*background: #02AAB0;
 background: -webkit-linear-gradient(to left, #02AAB0 , #00CDAC);
 background: linear-gradient(to left, #02AAB0 , #00CDAC);
@@ -110,7 +111,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 margin:5px;
 }
 
-
+/*
 .titulos{
     box-sizing: border-box;
     color: rgb(0, 0, 0);
@@ -121,7 +122,8 @@ margin:5px;
     perspective-origin: 352.5px 22px;
     transform-origin: 352.5px 22px;
     border: 5px none rgb(52, 73, 94);
-    font: normal normal bold normal 30px / 30px Lato, Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: 150px;
     outline: rgb(52, 73, 94) none 0px;
 }
 
@@ -135,10 +137,11 @@ margin:5px;
     perspective-origin: 352.5px 22px;
     transform-origin: 352.5px 22px;
     border: 5px none rgb(52, 73, 94);
-    font: normal normal bold normal 40px / 44px Lato, Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: 45px;
     outline: rgb(52, 73, 94) none 0px;
 }
-
+*/
 #contenedor{
    overflow:hidden;
 }
@@ -150,11 +153,38 @@ margin:5px;
 }
 
 .titulo {
-  font-family: 'Francois One', sans-serif;
-  font-size: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 35px;
+  color: rgb(0, 0, 0);
 }
 
 .texto {
   font-family: 'Roboto', sans-serif;
+  font-size: 10px;
   color: rgb(0, 0, 0);
 }
+
+.vegfriendly {
+    transform: scale(2);
+    -ms-transform: scale(2);
+    -webkit-transform: scale(2);
+    padding: 10px;
+    margin: 5px 27px;
+    width: 0px;
+}
+
+
+.mdl-card {
+  width: 256px;
+  height: 256px;
+  margin-top:10px;
+  margin-bottom:40px;
+}
+
+.mdl-button {
+  width: 140px;
+  height: 50px;
+  font-size: 17px;
+  font-family: 'Roboto', sans-serif;
+}
+
