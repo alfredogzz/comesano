@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import UserProfile, Restaurant, Review
+from .models import UserProfile, Restaurant, Review, UserFavorite
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -33,6 +33,13 @@ class ReviewAvgSerializer(serializers.Serializer):
 
 class ReviewCountSerializer(serializers.Serializer):
     count = serializers.IntegerField()
+
+class UserFavoriteSerializer(serializers.ModelSerializer):
+    user_name = serializers.CharField(source='user.username', read_only=True)
+    restaurant_name = serializers.CharField(source='restaurant.nombre', read_only=True)
+    class Meta:
+        model = UserFavorite
+        fields= ('id', 'user', 'user_name','restaurant', 'restaurant_name')
 
 class ReviewSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

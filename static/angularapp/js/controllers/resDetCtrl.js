@@ -6,6 +6,7 @@
     $scope.restaurant_info=[];
     $scope.userLogged = $cookies.getObject('userIsLogged');
     $scope.userID = $cookies.get('userID');
+    $scope.username = $cookies.get('userUsername');
     console.log($scope.userID);
     $scope.onCourse = false;
     $scope.reviewComment;
@@ -16,7 +17,14 @@
     $scope.rest.rate = 0;
     $scope.review_list = {};
     $scope.userProfileInfo={};
+    $scope.userFavorite = 0;
+    $scope.userFavorites = {};
+    $scope.userFavoriteInfo = {};
 
+
+    $scope.poperror = function(title_text, body_text){
+      toaster.pop('error', title_text, body_text);
+    }
 
     $scope.popsuccess = function(title_text, body_text){
       toaster.pop('success', title_text, body_text);
@@ -61,7 +69,6 @@
       checkApi.checkRestaurantsReviewsList($scope.restaurant_id)
       .then(function(data){
         $scope.review_list=data.data;
-        console.log($scope.review_list);
       });
     }
 
@@ -71,11 +78,19 @@
       newInfo.comentario = $scope.reviewComment;
       newInfo.restaurant = api_url + 'restaurants/' + $scope.restaurant_info.id +'/';
       newInfo.user = api_url + 'users/' + $scope.userID + '/';
-      checkApi.newReview(newInfo, $scope.csrf_token)
-      .then(function(data){
-        console.log(data);
-        $scope.popsuccess("Tu resena se ha procesado","Gracias por tu retroalimentacion!")
-      });
+      if (newInfo.comentario) {
+        checkApi.newReview(newInfo, $scope.csrf_token)
+        .then(function(data, error){
+          if (data.status === 201) {
+            $scope.popsuccess("Tu resena se ha procesado","Gracias por tu retroalimentacion!")
+          }else {
+            $scope.poperror("No se ha podido mandar tu resena","Intentalo de nuevo!")
+          }
+        });
+      }else {
+        $scope.poperror("Necesitas ingresar un comentario","Intentalo de nuevo!")
+      }
+
       $scope.onCourse = !($scope.onCourse);
       $scope.rate = 3;
       $scope.reviewComment = '';
@@ -86,23 +101,51 @@
       .then(function(data){
         $scope.reviewCount = data.data[0].count
         return checkApi.checkRestaurantsReviewsAvg($scope.restaurant_id);
-
       }).then(function(data){
-        if($scope.reviewCount>=5){
+        if($scope.reviewCount>=3){
         $scope.reviewAvg = data.data[0].calificacion__avg
         $scope.rest.rate = $scope.reviewAvg;
         }
       });
     }
 
-    $scope.getUserInfo = function(){
-
+    $scope.isUserFav = function(){
+      checkApi.getUserFavorites($scope.userID)
+      .then(function(data){
+        $scope.userFavorites = data.data;
+        if ($scope.userFavorites .length > 0) {
+          for (var fav in $scope.userFavorites ) {
+            if ($scope.restaurant_id == $scope.userFavorites[fav].restaurant) {
+              $scope.userFavorite = 1;
+              $scope.userFavoriteInfo = $scope.userFavorites[fav];
+            }
+          }
+        }
+      });
     }
 
+    $scope.favoriteChange = function(){
+      console.log($scope.userFavoriteInfo);
+      //cambiar estatus de favorito permanentemente
+      $scope.userFavorite = !$scope.userFavorite;
+    };
+
+    $scope.getUserID = function(){
+      checkApi.getUserInfoByUsername($scope.username)
+      .then(function(data){
+        $cookies.put('userID', data.data[0].id);
+      })
+    };
 
     $scope.getRestaurantInfo($scope.restaurant_id);
     $scope.getResenas();
     $scope.reviews();
+    if ($scope.userLogged) {
+      if ($scope.userID === undefined) {
+        $scope.getUserID();
+      }
+      $scope.isUserFav();
+    }
   }
 
 

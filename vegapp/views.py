@@ -78,6 +78,17 @@ class UserProfileDetail(viewsets.ModelViewSet):
         user_id = self.kwargs['id']
         return UserProfile.objects.filter(user=user_id)
 
+class UserFavoriteList(viewsets.ModelViewSet):
+    queryset = UserFavorite.objects.all()
+    serializer_class = UserFavoriteSerializer
+
+class UserFavoritesbyUser(viewsets.ModelViewSet):
+    serializer_class = UserFavoriteSerializer
+
+    def get_queryset(self):
+        user_id = self.kwargs['id']
+        return UserFavorite.objects.filter(user=user_id)
+
 def home(req):
     csrf_token = csrf.get_token(req)
     context_dict = {'STATIC_URL': settings.STATIC_URL, 'token': csrf_token}
