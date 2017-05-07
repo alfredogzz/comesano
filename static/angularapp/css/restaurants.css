@@ -115,9 +115,15 @@ a.animated-button:link, a.animated-button:visited {
 }
 
 .mdl-card {
-  width: 300px;
+  width: 290px;
   height: 300px;
   margin-top:10px;
   margin-bottom:40px;
-  margin-left: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.rest {
+    padding-right: 30px;
+    padding-left: 70px;
 }

@@ -27,7 +27,21 @@
         </div>
         <button class="mdl-button mdl-js-button" style="color:white" ng-click="search()">Encontrar</button>
       <div id="info" class="filtros ">
+      <br>
         [[barra.text]]
+      </div>
+      <br>
+      <div>
+        <span >
+          <p class="info">
+          <i class="material-icons" style="font-size: 15px;">link</i> www.pagina.com 
+          <br>
+          <i class="material-icons" style="font-size: 15px;">phone</i> 88 88 88 88 
+          <br>
+          <i class="material-icons" style="font-size: 15px;">query_builder</i> Lunes - Domingo:
+          <br> &nbsp&nbsp&nbsp 8:00 - 22:00 
+          </p>
+        </span>
       </div>
     </div>
     <div class="col-xs-9">
@@ -49,9 +63,9 @@
       </div>
       </div>
       <spinner name="booksSpinner" show="loading"></spinner>
-
-      <div class="row">
-        <div ng-repeat="res in restaurants" class="col-xs-4" style="margin-top:10px;">
+      <div class="row" >
+        <div ng-repeat="res in restaurants" class="col-xs-4" >
+         <div >
           <a ui-sref="restaurant_detail({id:res.id})" >
             <div class="mdl-card mdl-shadow--3dp">
                         <div class="mdl-card__media">
@@ -64,14 +78,15 @@
                           <span class="mdl-typography--font-light mdl-typography--subhead">[[res.id]]</span>
                         </div>
                         <div class="mdl-card__actions">
-                           <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                           <span class="android-link dist mdl-js-button mdl-typography--text-uppercase" href="">
                              [[res.distance]] km
-                             <i class="material-icons">chevron_right</i>
-                           </a>
+                             <i class="material-icons" style="font-size: 15px;">chevron_right</i>
+                           </span>
                         </div>
                       </div>
           </a>
           </div>
+         </div>
         </div>
     </div>
   </div>
