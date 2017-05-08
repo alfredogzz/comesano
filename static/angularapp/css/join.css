@@ -84,3 +84,28 @@ h1, input {
 .inputButton:focus {
   outline: none;
 }
+
+.navbar{
+  margin-bottom: 0px !important;
+}
+
+.navbar-inverse{
+  background-color: #FF9B91;
+  border-color: #FF9B91;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 150;
+}
+
+.body > * {
+  font-family: 'Roboto', sans-serif !important
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+}
+
+.navbar-inverse .navbar-text {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+
+}

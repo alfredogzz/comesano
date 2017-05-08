@@ -2,13 +2,29 @@
 <div  class="container-fluid fondos fondo">
   <div class="row">
     <div class="col-xs-3 sidenav">
-      <div class="col-xs-12 filtros">
-          <label for="usr"> Distancia (KM):</label>
-          <input type="number" min="1" class="form-control button-filtros " id="usr" ng-model="busqueda.distancia">
+      <div class="filtros ">
+        [[barra.text]]
+      <br>
+      <div style="border-bottom: solid 1px;">
+        <span >
+          <p class="info">
+          <i class="material-icons" style="font-size: 15px;">link</i> [[barra.sitioweb]]
+          <br>
+          <i class="material-icons" style="font-size: 15px;">phone</i> [[barra.telefono]]
+          <br>
+          <i class="material-icons" style="font-size: 15px;">query_builder</i> [[barra.horario_dias]]
+          <br> &nbsp&nbsp&nbsp  [[barra.horario_horas]]
+          </p>
+        </span>
+      </div>
+            </div>
+      <div class="col-xs-12 filtros" style="padding-top:10px;">
+          <label for="usr"> Distancia (KM)</label>
+          <input style="color: white;     height: 20px;margin-bottom: 0px;" type="number" min="1" class="form-control button-filtros " id="usr" ng-model="busqueda.distancia">
       </div>
 
       <div class="col-xs-12 filtros">
-          <label for="sel1">Costo: </label>
+          <label for="sel1">Costo </label>
           <select class="form-control button-filtros " id="sel1" ng-model="busqueda.costo">
             <option>$</option>
             <option>$$</option>
@@ -18,31 +34,12 @@
       </div>
 
       <div class="col-xs-12 filtros">
-        <label for="vegfriendly"> Vegetariano:</label>
-          <div >
-            <label class="vegfriendly">
-              <input type="checkbox"   ng-model="busqueda.vegfriendly">
-            </label>
-          </div>
-        </div>
-        <button class="mdl-button mdl-js-button" style="color:white" ng-click="search()">Encontrar</button>
-      <div id="info" class="filtros ">
-      <br>
-        [[barra.text]]
+        <label for="vegfriendly"> Vegetariano? </label>
+        <input type="checkbox" class="check" ng-model="busqueda.vegfriendly">
       </div>
-      <br>
-      <div>
-        <span >
-          <p class="info">
-          <i class="material-icons" style="font-size: 15px;">link</i> www.pagina.com 
-          <br>
-          <i class="material-icons" style="font-size: 15px;">phone</i> 88 88 88 88 
-          <br>
-          <i class="material-icons" style="font-size: 15px;">query_builder</i> Lunes - Domingo:
-          <br> &nbsp&nbsp&nbsp 8:00 - 22:00 
-          </p>
-        </span>
-      </div>
+
+      <button class="mdl-button mdl-js-button" style="color:white" ng-click="search()">Encontrar</button>
+
     </div>
     <div class="col-xs-9">
       <div class="row">
@@ -53,6 +50,7 @@
           <span>Loation found using HTML5.</span>
         </info-window>
       </ng-map>
+
         </div>
         <div >
           <hr class="hr"> 
@@ -64,6 +62,7 @@
           </h4>
           </div>
         </div>
+
       </div>
       <spinner name="booksSpinner" show="loading"></spinner>
       <div class="row" >
@@ -72,7 +71,7 @@
           <a ui-sref="restaurant_detail({id:res.id})" >
             <div class="mdl-card mdl-shadow--3dp">
                         <div class="mdl-card__media">
-                          <img src="http://placehold.it/350x150">
+                          <img src="http://placehold.it/250x150">
                         </div>
                         <div class="mdl-card__title">
                            <h4 class="mdl-card__title-text">[[res.nombre]]</h4>
@@ -93,7 +92,7 @@
         </div>
     </div>
   </div>
-  </div>
+
   <!--
   <script src="http://maps.googleapis.com/maps/api/js?libraries=geometry"></script>
   -->

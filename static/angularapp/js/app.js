@@ -48,7 +48,7 @@ module.config(['$stateProvider', '$urlRouterProvider',
             css: static_url + 'angularapp/css/join.css'
           }
         })
-        $urlRouterProvider.otherwise('/map');
+        $urlRouterProvider.otherwise('/mapa');
     }]);
 
 api_url = 'http://localhost:8000/api/'

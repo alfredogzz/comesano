@@ -55,8 +55,11 @@
 
     $scope.attachSecretMessage= function(marker, secretMessage)  {
       marker.addListener('click', function() {
-        console.log(secretMessage);
         $scope.barra.text = secretMessage.nombre;
+        $scope.barra.sitioweb = secretMessage.sitioweb;
+        $scope.barra.telefono = secretMessage.telefono;
+        $scope.barra.horario_dias = secretMessage.horario_dias;
+        $scope.barra.horario_horas = secretMessage.horario_horas;
         $scope.$apply();
       });
     };
@@ -64,7 +67,6 @@
     $scope.getRestaurants=function(myMap, params){
       checkApi.checkRestaurants()
       .then(function(data){
-        console.log($scope.myLocation);
         $scope.restaurants = data.data;
         for (var index in $scope.restaurants) {
           var item = $scope.restaurants[index];
@@ -117,7 +119,6 @@
             var position = $scope.restaurantmarkers[index].position;
             newBoundary.extend(position);
           }
-          console.log($scope.restaurantmarkers);
           newBoundary.extend($scope.mainmarker.position)
           myMap.fitBounds(newBoundary);
           myMap.setZoom((myMap.getZoom()));
@@ -127,7 +128,6 @@
 
       $scope.search=function(){
         $scope.progressbar.start();
-        console.log($scope.busqueda);
         $scope.getRestaurants($scope.map, $scope.busqueda);
         $scope.progressbar.complete();
       };
