@@ -26,7 +26,7 @@ class UserReviewSerializer(serializers.HyperlinkedModelSerializer):
 class RestaurantSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Restaurant
-        fields = ('id','nombre', 'descripcion', 'location_lat', 'location_lon', 'price', 'veg')
+        fields = ('id','nombre', 'descripcion', 'location_lat', 'location_lon', 'price', 'veg', 'sitioweb', 'telefono', 'horario_horas', 'horario_dias')
 
 class ReviewAvgSerializer(serializers.Serializer):
     calificacion__avg = serializers.FloatField()

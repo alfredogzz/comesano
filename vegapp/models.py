@@ -19,6 +19,10 @@ class Restaurant(models.Model):
     location_lon = models.DecimalField(max_digits=10, decimal_places=7)
     price = models.CharField(max_length=4);
     veg = models.BooleanField(default=False);
+    sitioweb = models.CharField(max_length=200)
+    telefono = models.CharField(max_length=20)
+    horario_dias = models.CharField(max_length=30)
+    horario_horas = models.CharField(max_length=30)
 
     def __str__(self):
         return self.nombre
