@@ -2,6 +2,7 @@
 <div  class="container-fluid fondos fondo">
   <div class="row">
     <div class="col-xs-3 sidenav">
+    <br>
       <div class="filtros ">
         [[barra.text]]
       <br>
@@ -17,13 +18,14 @@
           </p>
         </span>
       </div>
-            </div>
+      </div>
       <div class="col-xs-12 filtros" style="padding-top:10px;">
           <label for="usr"> Distancia (KM)</label>
           <input style="color: white;     height: 20px;margin-bottom: 0px;" type="number" min="1" class="form-control button-filtros " id="usr" ng-model="busqueda.distancia">
       </div>
 
       <div class="col-xs-12 filtros">
+      <br>
           <label for="sel1">Costo </label>
           <select class="form-control button-filtros " id="sel1" ng-model="busqueda.costo">
             <option>$</option>
@@ -31,13 +33,15 @@
             <option>$$$</option>
             <option>Todos</option>
           </select>
+      <br>
       </div>
-
+      <br>
       <div class="col-xs-12 filtros">
         <label for="vegfriendly"> Vegetariano? </label>
-        <input type="checkbox" class="check" ng-model="busqueda.vegfriendly">
+        <br>
+        <input type="checkbox" class="check vegfriendly" ng-model="busqueda.vegfriendly">
       </div>
-
+      <br>
       <button class="mdl-button mdl-js-button" style="color:white" ng-click="search()">Encontrar</button>
 
     </div>
@@ -50,21 +54,9 @@
           <span>Loation found using HTML5.</span>
         </info-window>
       </ng-map>
-
-        </div>
-        <div >
-          <hr class="hr"> 
-          <div class="sombra">
-          <h4 class="titulo  col-xs-12" style="text-align:center">
-                   
-          <i class="material-icons" style="font-size: 25px;">restaurant</i>
-          Restaurantes
-          </h4>
-          </div>
-        </div>
-
-      </div>
       <spinner name="booksSpinner" show="loading"></spinner>
+      </div>
+
       <div class="row" >
         <div ng-repeat="res in restaurants" class="col-xs-4" >
          <div >

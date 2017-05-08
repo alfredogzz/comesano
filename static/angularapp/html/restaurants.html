@@ -1,13 +1,11 @@
 <div>
-    <div class=" col-xs-12 sombra">
+    <div class=" col-xs-12">
       <h4 class="nombre col-xs-12 titulo" style="text-align:center">
       <i class="material-icons" style="font-size: 35px;">restaurant</i>
       Restaurantes</h4>
   </div>
-</div>
 <div id="contenedor" class="container-fluid fondo" style="display:flex;" >
   <div class="row rest">
-  <br><br>
     <div ng-repeat="res in restaurants" class="col-xs-4" style="margin-top:10px;">
       <a ui-sref="restaurant_detail({id:res.id})" >
         <div class="mdl-card mdl-shadow--3dp">
