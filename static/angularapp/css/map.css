@@ -200,3 +200,16 @@ margin:5px;
     font-family: 'Roboto', sans-serif;
     color: #0066cc;
 }
+
+.sombra {
+    position: relative;
+    left: 35%;
+    width: 270px;
+    height: 60px;
+    box-shadow: 7px 7px 5px #888888;
+}
+
+.hr {
+    width: 100%;
+    margin-top: 50px;
+}
