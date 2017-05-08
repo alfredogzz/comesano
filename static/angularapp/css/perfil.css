@@ -21,6 +21,22 @@
     outline: rgb(52, 73, 94) none 0px;
 }
 
+.rec{
+    box-sizing: border-box;
+    color: rgb(0, 0, 0);
+    height: 50px;
+    left: 35%;
+    text-size-adjust: 100%;
+    width: 1000px;
+    column-rule-color: rgb(52, 73, 94);
+    perspective-origin: 352.5px 22px;
+    transform-origin: 352.5px 22px;
+    border: 5px none rgb(52, 73, 94);
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+    outline: rgb(52, 73, 94) none 0px;
+}
+
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css);
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 a.animated-button:link, a.animated-button:visited {
@@ -164,6 +180,7 @@ a.animated-button:link, a.animated-button:visited {
 .navbar-inverse .navbar-text {
   color: white;
   font-family: 'Roboto', sans-serif;
+
 }
 
 .cabecera {

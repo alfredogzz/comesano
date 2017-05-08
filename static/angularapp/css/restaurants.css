@@ -1,5 +1,22 @@
 
+.links{
+    box-sizing: border-box;
+    color: rgb(39, 107, 235);
 
+    float: left;
+    height: 60px;
+    text-decoration: none;
+    text-size-adjust: 100%;
+    width: 1300px;
+    column-rule-color: rgb(119, 119, 119);
+    perspective-origin: 43.8906px 30px;
+    transform-origin: 43.8906px 30px;
+    border: 0px none rgb(119, 119, 119);
+    font: normal normal 600 normal 20px / 20px "Helvetica Neue", "Open Sans", Arial, sans-serif;
+    margin: 5px 0px;
+    outline: rgb(119, 119, 119) none 0px;
+    padding: 0px 15px;
+}
 
 .titulo{
     box-sizing: border-box;
@@ -106,15 +123,6 @@ a.animated-button:link, a.animated-button:visited {
     padding-right: 30px;
     padding-left: 70px;
 }
-
-.sombra {
-    position: relative;
-    left: 35%;
-    width: 369px;
-    height: 60px;
-    box-shadow: 7px 7px 5px #888888;
-}
-=======
 .navbar{
   margin-bottom: 0px !important;
 }
@@ -139,4 +147,3 @@ a.animated-button:link, a.animated-button:visited {
   font-family: 'Roboto', sans-serif;
 
 }
-

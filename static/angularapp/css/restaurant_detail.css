@@ -178,3 +178,17 @@ a.animated-button:link, a.animated-button:visited {
   font-family: 'Roboto', sans-serif;
 
 }
+
+.tabla {
+  width: 97%;
+  margin-left: 20px;
+  margin-right: 30px;
+}
+
+table{
+    table-layout: fixed;
+}
+
+td{
+    word-wrap:break-word
+}
