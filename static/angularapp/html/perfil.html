@@ -8,8 +8,126 @@
       <h4 class="nombre col-xs-9 titulo">[[userProfileInfo.nombre_completo]]</h4>
     </div>
   </div>
+
+  <div>
+  <div class=" col-xs-12 sombra">
+        <h4 class="nombre col-xs-12 titulo" >
+        Recomendaciones</h4>
+  </div>
+  <div id="contenedor" class="container"  >
+  <br>
+  <br>
+    <div class="rest">
+      <div > 
+        <a ui-sref="restaurant_detail({id:res.id})" class="col-md-4"  >
+          <div class="mdl-card mdl-shadow--3dp" >
+                      <div class="mdl-card__media">
+                        <img src="http://placehold.it/350x150">
+                      </div>
+                      <div class="mdl-card__title">
+                         <h4 class="mdl-card__title-text">restaurant</h4>
+                      </div>
+                      <div class="mdl-card__supporting-text">
+                        <span class="mdl-typography--font-light mdl-typography--subhead">restaurant restaurant restaurant restaurant </span>
+                      </div>
+                      <div class="mdl-card__actions">
+                        <span class="last" uib-rating ng-model="res.avg" max="5"  read-only="true" aria-labelledby="default-rating"></span>
+                      </div>
+          </div>
+        </a>
+        <a ui-sref="restaurant_detail({id:res.id})" class="col-md-4"  >
+          <div class="mdl-card mdl-shadow--3dp">
+                      <div class="mdl-card__media">
+                        <img src="http://placehold.it/350x150">
+                      </div>
+                      <div class="mdl-card__title">
+                         <h4 class="mdl-card__title-text">restaurant</h4>
+                      </div>
+                      <div class="mdl-card__supporting-text">
+                        <span class="mdl-typography--font-light mdl-typography--subhead">[[res.descripcion]]</span>
+                      </div>
+                      <div class="mdl-card__actions">
+                        <span class="last" uib-rating ng-model="res.avg" max="5"  read-only="true" aria-labelledby="default-rating"></span>
+                      </div>
+          </div>
+        </a>
+        <a ui-sref="restaurant_detail({id:res.id})" class="col-md-4" >
+          <div class="mdl-card mdl-shadow--3dp">
+                      <div class="mdl-card__media">
+                        <img src="http://placehold.it/350x150">
+                      </div>
+                      <div class="mdl-card__title">
+                         <h4 class="mdl-card__title-text">restaurant</h4>
+                      </div>
+                      <div class="mdl-card__supporting-text">
+                        <span class="mdl-typography--font-light mdl-typography--subhead">[[res.descripcion]]</span>
+                      </div>
+                      <div class="mdl-card__actions">
+                        <span class="last" uib-rating ng-model="res.avg" max="5"  read-only="true" aria-labelledby="default-rating"></span>
+                      </div>
+          </div>
+        </a>
+        <a ui-sref="restaurant_detail({id:res.id})" class="col-md-4"  >
+          <div class="mdl-card mdl-shadow--3dp" >
+                      <div class="mdl-card__media">
+                        <img src="http://placehold.it/350x150">
+                      </div>
+                      <div class="mdl-card__title">
+                         <h4 class="mdl-card__title-text">restaurant</h4>
+                      </div>
+                      <div class="mdl-card__supporting-text">
+                        <span class="mdl-typography--font-light mdl-typography--subhead">restaurant restaurant restaurant </span>
+                      </div>
+                      <div class="mdl-card__actions">
+                        <span class="last" uib-rating ng-model="res.avg" max="5"  read-only="true" aria-labelledby="default-rating"></span>
+                      </div>
+          </div>
+        </a>
+        <a ui-sref="restaurant_detail({id:res.id})" class="col-md-4"  >
+          <div class="mdl-card mdl-shadow--3dp" >
+                      <div class="mdl-card__media">
+                        <img src="http://placehold.it/350x150">
+                      </div>
+                      <div class="mdl-card__title">
+                         <h4 class="mdl-card__title-text">[[res.nombre]]</h4>
+                      </div>
+                      <div class="mdl-card__supporting-text">
+                        <span class="mdl-typography--font-light mdl-typography--subhead">[[res.descripcion]]</span>
+                      </div>
+                      <div class="mdl-card__actions">
+                        <span class="last" uib-rating ng-model="res.avg" max="5"  read-only="true" aria-labelledby="default-rating"></span>
+                      </div>
+          </div>
+        </a>
+        <a ui-sref="restaurant_detail({id:res.id})" class="col-md-4"  >
+          <div class="mdl-card mdl-shadow--3dp" >
+                      <div class="mdl-card__media">
+                        <img src="http://placehold.it/350x150">
+                      </div>
+                      <div class="mdl-card__title">
+                         <h4 class="mdl-card__title-text">[[res.nombre]]</h4>
+                      </div>
+                      <div class="mdl-card__supporting-text">
+                        <span class="mdl-typography--font-light mdl-typography--subhead">[[res.descripcion]]</span>
+                      </div>
+                      <div class="mdl-card__actions">
+                        <span class="last" uib-rating ng-model="res.avg" max="5"  read-only="true" aria-labelledby="default-rating"></span>
+                      </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+  <br><br><br>
+
   <div class="row">
+    <div class=" col-xs-12 sombra2">
+        <h4 class="nombre col-xs-12 titulo" >
+        Reviews</h4>
+  </div>
     <div class="col-xs-12">
+    <br><br>
       <table class="table " >
           <tr class="tit_tabla" >
             <th align="center">
